@@ -123,7 +123,10 @@
           "Hope Dead End — Film",
           "https://www.dropbox.com/scl/fi/7lnm5rdbc0av111j5sty9/HOPE-DEAD-END-1080.MP4?rlkey=kwz1u40a957574v4ggo22n0lh&dl=0"
         ]
-      ]
+      ],
+      "mediaPath": "media/project-hope-dead-end-1790361863025-bonbaste-omid.jpg",
+      "mediaType": "image",
+      "mediaId": ""
     },
     {
       "id": "ab-o-khak",
@@ -388,6 +391,13 @@
       "type": "image",
       "path": "media/project-fifth-council-1790361830104-anjoman-e-panjom.jpg",
       "projectId": "fifth-council"
+    },
+    {
+      "id": "media-1790361864842",
+      "title": "Hope Dead End — Project Image",
+      "type": "image",
+      "path": "media/project-hope-dead-end-1790361863025-bonbaste-omid.jpg",
+      "projectId": "hope-dead-end"
     }
   ],
   "contact": [
