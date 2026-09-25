@@ -83,7 +83,10 @@
           "BABA DARYA — Full Screenplay",
           "https://www.dropbox.com/scl/fi/klol96hebcu1pdouzet7a/BABA-DARYA-Full.docx?rlkey=miwzk23akw4j7fdttaagwsbbv&dl=0"
         ]
-      ]
+      ],
+      "mediaPath": "media/project-baba-darya-1790361794795-baba.png",
+      "mediaType": "image",
+      "mediaId": ""
     },
     {
       "id": "fifth-council",
@@ -368,6 +371,13 @@
       "type": "image",
       "path": "media/project-radiopod-1790361752958-rqdiopod.jpg",
       "projectId": "radiopod"
+    },
+    {
+      "id": "media-1790361796186",
+      "title": "BABA DARYA — Project Image",
+      "type": "image",
+      "path": "media/project-baba-darya-1790361794795-baba.png",
+      "projectId": "baba-darya"
     }
   ],
   "contact": [
