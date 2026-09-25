@@ -84,8 +84,8 @@
           "https://www.dropbox.com/scl/fi/klol96hebcu1pdouzet7a/BABA-DARYA-Full.docx?rlkey=miwzk23akw4j7fdttaagwsbbv&dl=0"
         ]
       ],
-      "mediaPath": "",
-      "mediaType": "",
+      "mediaPath": "media/project-baba-darya-1790365864491-baba.png",
+      "mediaType": "image",
       "mediaId": ""
     },
     {
@@ -528,6 +528,13 @@
       "type": "image",
       "path": "media/project-zyafat-e-noor-1790365505243-zyafat.png",
       "projectId": "zyafat-e-noor"
+    },
+    {
+      "id": "media-1790365866599",
+      "title": "BABA DARYA — Project Image",
+      "type": "image",
+      "path": "media/project-baba-darya-1790365864491-baba.png",
+      "projectId": "baba-darya"
     }
   ],
   "contact": [
