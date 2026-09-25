@@ -319,8 +319,8 @@
       "formats": "2D & 3D Animation · Short & Series Production",
       "status": "Professional achievement",
       "links": [],
-      "mediaPath": "",
-      "mediaType": "",
+      "mediaPath": "media/project-animation-units-1790365646694-animation.png",
+      "mediaType": "image",
       "mediaId": ""
     }
   ],
@@ -508,6 +508,13 @@
       "type": "image",
       "path": "media/project-javaneha-1790365610644-kooda.png",
       "projectId": "javaneha"
+    },
+    {
+      "id": "media-1790365653420",
+      "title": "Founder of Two Animation Units — Project Image",
+      "type": "image",
+      "path": "media/project-animation-units-1790365646694-animation.png",
+      "projectId": "animation-units"
     }
   ],
   "contact": [
