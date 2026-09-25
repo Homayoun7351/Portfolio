@@ -162,6 +162,12 @@
   ],
   "contact": [
     {
+      "title": "Address",
+      "value": "Tehran  Iran",
+      "icon": "bi-location",
+      "link": ""
+    },
+    {
       "title": "Email",
       "value": "sheikhi.h@gmail.com",
       "icon": "bi-gmail",
@@ -171,12 +177,6 @@
       "title": "Phone",
       "value": "+98 920 500 1285",
       "icon": "bi-phone",
-      "link": ""
-    },
-    {
-      "title": "Address",
-      "value": "Tehran  Iran",
-      "icon": "bi-location",
       "link": ""
     }
   ]
