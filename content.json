@@ -103,7 +103,10 @@
           "The Fifth Council — Video",
           "https://www.dropbox.com/scl/fi/3yr3e3oods07xainy8mhj/Fifth-Council.mp4?rlkey=ri50ma5duf0jp6nstaziqvgwy&dl=0"
         ]
-      ]
+      ],
+      "mediaPath": "media/project-fifth-council-1790361830104-anjoman-e-panjom.jpg",
+      "mediaType": "image",
+      "mediaId": ""
     },
     {
       "id": "hope-dead-end",
@@ -378,6 +381,13 @@
       "type": "image",
       "path": "media/project-baba-darya-1790361794795-baba.png",
       "projectId": "baba-darya"
+    },
+    {
+      "id": "media-1790361834201",
+      "title": "The Fifth Council — Project Image",
+      "type": "image",
+      "path": "media/project-fifth-council-1790361830104-anjoman-e-panjom.jpg",
+      "projectId": "fifth-council"
     }
   ],
   "contact": [
