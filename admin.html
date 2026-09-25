@@ -32,6 +32,7 @@
 <a class="side-link" data-panel="projects"><i class="bi bi-collection-play"></i><span>Projects</span></a>
 <a class="side-link" data-panel="experience"><i class="bi bi-briefcase"></i><span>Experience</span></a>
 <a class="side-link" data-panel="expertise"><i class="bi bi-stars"></i><span>Expertise</span></a>
+<a class="side-link" data-panel="contact"><i class="bi bi-envelope"></i><span>Contact</span></a>
 <a class="side-link" data-panel="media"><i class="bi bi-images"></i><span>Media Library</span></a>
 </nav>
 <div class="side-bottom">
@@ -56,6 +57,7 @@
 <div class="cardx metric"><div class="ico"><i class="bi bi-briefcase"></i></div><strong id="mExperience">—</strong><span>Experience entries</span></div>
 <div class="cardx metric"><div class="ico"><i class="bi bi-stars"></i></div><strong id="mExpertise">—</strong><span>Expertise items</span></div>
 <div class="cardx metric"><div class="ico"><i class="bi bi-images"></i></div><strong id="mMedia">—</strong><span>Media files</span></div>
+<div class="cardx metric"><div class="ico"><i class="bi bi-envelope"></i></div><strong id="mContact">—</strong><span>Contact items</span></div>
 </div>
 <div class="cardx panel-card">
 <div class="section-head"><div><h2>Quick Actions</h2><p>Jump directly to the part you want to manage.</p></div></div>
@@ -72,6 +74,7 @@
 <section id="projects" class="panel"><div class="cardx panel-card"><div class="section-head"><div><h2>Projects</h2><p>Create, reorder and connect project media.</p></div><button class="btn btn-primary btn-sm" onclick="addProject()"><i class="bi bi-plus-lg"></i> Add Project</button></div><div id="projectsForm"></div></div></section>
 <section id="experience" class="panel"><div class="cardx panel-card"><div class="section-head"><div><h2>Professional Experience</h2><p>Manage achievements and career roles.</p></div><button class="btn btn-primary btn-sm" onclick="addPair('experience')"><i class="bi bi-plus-lg"></i> Add</button></div><div id="experienceForm"></div></div></section>
 <section id="expertise" class="panel"><div class="cardx panel-card"><div class="section-head"><div><h2>Expertise</h2><p>Manage the professional areas displayed on the site.</p></div><button class="btn btn-primary btn-sm" onclick="addPair('expertise')"><i class="bi bi-plus-lg"></i> Add</button></div><div id="expertiseForm"></div></div></section>
+<section id="contact" class="panel"><div class="cardx panel-card"><div class="section-head"><div><h2>Contact</h2><p>Add, edit, reorder or remove contact items shown on the website.</p></div><button class="btn btn-primary btn-sm" onclick="addContact()"><i class="bi bi-plus-lg"></i> Add Contact Item</button></div><div id="contactForm"></div></div></section>
 <section id="media" class="panel"><div class="cardx panel-card">
 <div class="section-head"><div><h2>Media Library</h2><p>Upload, preview, organize and connect media to project pages.</p></div><div class="d-flex gap-2 align-items-center"><button class="btn btn-outline-secondary btn-sm" onclick="refreshMedia()"><i class="bi bi-arrow-clockwise me-1"></i>Refresh</button><div class="connected-pill"><i class="bi bi-cloud-check me-1"></i> Repository media</div></div></div>
 <div class="item"><h5 class="mb-3"><i class="bi bi-cloud-arrow-up me-2"></i>Upload New Media</h5><div class="row g-2"><div class="col-lg-6"><input id="file" type="file" class="form-control"></div><div class="col-lg-6"><input id="mediaTitle" class="form-control" placeholder="Title (optional)"></div></div><div class="row g-2 mt-2"><div class="col-md-6"><select id="mediaType" class="form-select"><option value="image">Image</option><option value="video">Video</option><option value="audio">Audio</option><option value="pdf">PDF</option><option value="other">Other</option></select></div><div class="col-md-6"><select id="mediaProject" class="form-select"><option value="">No project</option></select></div></div><button class="btn btn-primary mt-3" onclick="uploadMedia()"><i class="bi bi-upload me-1"></i> Upload</button><div class="small-note mt-2">The file is automatically stored in <strong>media/</strong>. Maximum individual upload: 25 MB.</div></div>
@@ -164,6 +167,7 @@ async function loadData(){
     data.projects=data.projects||[];
     data.experience=data.experience||[];
     data.expertise=data.expertise||[];
+    data.contact=data.contact||[];
     await syncMediaFromRepository();
     dirty=false;
     $('connection').classList.add('hidden');
@@ -189,7 +193,8 @@ function showPanel(id){
     projects:['Projects','Selected work and project pages.'],
     experience:['Professional Experience','Career highlights and roles.'],
     expertise:['Expertise','Professional areas and capabilities.'],
-    media:['Media Library','Images, video, audio and documents.']
+    media:['Media Library','Images, video, audio and documents.'],
+    contact:['Contact','Manage the contact items displayed on the website.']
   };
   $('pageTitle').textContent=names[id][0]; $('pageSub').textContent=names[id][1];
   window.scrollTo({top:0,behavior:'smooth'});
@@ -234,6 +239,7 @@ function render(){
 
   $('experienceForm').innerHTML=data.experience.length?data.experience.map((p,i)=>pair('experience',i,p)).join(''):'<div class="empty">No experience entries yet.</div>';
   $('expertiseForm').innerHTML=data.expertise.length?data.expertise.map((p,i)=>pair('expertise',i,p)).join(''):'<div class="empty">No expertise items yet.</div>';
+  $('contactForm').innerHTML=data.contact.length?data.contact.map((p,i)=>contactItem(i,p)).join(''):'<div class="empty">No contact items yet.</div>';
   $('mediaForm').innerHTML=data.media.length?data.media.map((m,i)=>mediaCard(m,i)).join(''):'<div class="empty"><i class="bi bi-images fs-2 d-block mb-2"></i>No media yet.</div>';
   $('mediaProject').innerHTML='<option value="">No project</option>'+data.projects.map(p=>'<option value="'+esc(p.id)+'">'+esc(p.title||p.id)+'</option>').join('');
 }
@@ -273,12 +279,27 @@ function updateMetrics(){
   $('mExperience').textContent=(data.experience||[]).length;
   $('mExpertise').textContent=(data.expertise||[]).length;
   $('mMedia').textContent=(data.media||[]).length;
+  $('mContact').textContent=(data.contact||[]).length;
 }
 function moveProject(i,d){collect();const j=i+d;if(j<0||j>=data.projects.length)return;[data.projects[i],data.projects[j]]=[data.projects[j],data.projects[i]];markDirty();render();updateMetrics();showPanel('projects')}
 function addProject(){collect();data.projects.push({id:'project-'+Date.now(),title:'New Project',label:'Selected Work',text:'Project description',role:'',formats:'',status:'Selected work',mediaPath:'',mediaType:''});markDirty();render();updateMetrics();showPanel('projects')}
 function delProject(i){if(confirm('Delete this project?')){collect();data.projects.splice(i,1);markDirty();render();updateMetrics()}}
 function addPair(k){collect();data[k].push(['New item','Description']);markDirty();render();updateMetrics();showPanel(k)}
 function delPair(k,i){if(confirm('Delete this item?')){collect();data[k].splice(i,1);markDirty();render();updateMetrics()}}
+function contactItem(i,p){
+  return '<div class="item"><div class="item-head"><strong>'+esc(p.title||'New contact item')+'</strong><div class="d-flex gap-2">'+
+  '<button class="btn btn-outline-secondary btn-sm" onclick="moveContact('+i+',-1)" '+(i===0?'disabled':'')+'><i class="bi bi-chevron-up"></i></button>'+
+  '<button class="btn btn-outline-secondary btn-sm" onclick="moveContact('+i+',1)" '+(i===(data.contact.length-1)?'disabled':'')+'><i class="bi bi-chevron-down"></i></button>'+ 
+  '<button class="btn btn-outline-danger btn-sm" onclick="delContact('+i+')"><i class="bi bi-trash"></i></button></div></div>'+
+  '<div class="row g-2">'+
+  '<div class="col-md-4">'+input('Title','contact.'+i+'.title',p.title||'')+'</div>'+ 
+  '<div class="col-md-4">'+input('Value','contact.'+i+'.value',p.value||'')+'</div>'+ 
+  '<div class="col-md-4">'+input('Icon','contact.'+i+'.icon',p.icon||'bi-envelope')+'</div></div>'+ 
+  input('Link (optional)','contact.'+i+'.link',p.link||'')+'</div>';
+}
+function addContact(){collect();data.contact.push({title:'New Contact',value:'',icon:'bi-envelope',link:''});markDirty();render();updateMetrics();showPanel('contact')}
+function delContact(i){if(confirm('Delete this contact item?')){collect();data.contact.splice(i,1);markDirty();render();updateMetrics()}}
+function moveContact(i,d){collect();const j=i+d;if(j<0||j>=data.contact.length)return;[data.contact[i],data.contact[j]]=[data.contact[j],data.contact[i]];markDirty();render();updateMetrics();showPanel('contact')}
 
 async function save(){
   try{
