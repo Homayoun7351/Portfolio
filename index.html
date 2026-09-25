@@ -37,6 +37,14 @@
 .stat-card strong{display:block;font-size:2rem;line-height:1.1;color:var(--accent)}
 .stat-card span{display:block;margin-top:8px;color:#555}
 #footer .credits{font-size:.8rem}
+.hero .hero-meta{display:flex;gap:26px;flex-wrap:wrap}
+.hero .hero-meta span{font-size:.72rem;letter-spacing:1.8px;color:rgba(255,255,255,.62);padding-right:26px;border-right:1px solid rgba(255,255,255,.18)}
+.hero .hero-meta span:last-child{border-right:0}
+.service-item{height:100%;padding:34px 30px;background:#fff;border-radius:14px;box-shadow:0 8px 28px rgba(0,0,0,.06);border:1px solid rgba(0,0,0,.04)}
+.service-item .icon{width:54px;height:54px;border-radius:12px;background:rgba(20,157,221,.1);color:var(--accent);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:22px}
+.service-item h3{font-size:1.2rem;margin-bottom:12px}
+.service-item p{margin:0;color:#666}
+
 @media(max-width:1199px){.hero{min-height:78vh}}
 </style>
 </head>
@@ -55,6 +63,7 @@
 <ul>
 <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i>Home</a></li>
 <li><a href="#about"><i class="bi bi-person navicon"></i>About</a></li>
+<li><a href="#approach"><i class="bi bi-stars navicon"></i>What I Bring</a></li>
 <li><a href="#work"><i class="bi bi-film navicon"></i>Selected Work</a></li>
 <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i>Experience</a></li>
 <li><a href="#skills"><i class="bi bi-stars navicon"></i>Expertise</a></li>
@@ -74,7 +83,7 @@
 <a href="#work" class="btn btn-primary px-4 py-3">Explore Selected Work</a>
 <a href="#about" class="btn btn-outline-light px-4 py-3">About Me</a>
 </div>
-<div class="hero-meta">Creative leadership · Audiovisual production · Writing · Radio · Voice & Narration</div>
+<div class="hero-meta"><span>25+ YEARS</span><span>40,000+ TV MINUTES</span><span>1,000+ RADIOPOD HOURS</span></div>
 </div>
 </section>
 
@@ -107,6 +116,20 @@
 </div>
 <p class="py-3">I have worked across the full life cycle of media projects: concept development, editorial direction, writing, production planning, team leadership, delivery and audience-facing presentation.</p>
 </div>
+</div>
+</div>
+</section>
+
+<section id="approach" class="services section">
+<div class="container section-title" data-aos="fade-up">
+<h2>What I Bring</h2>
+<p>A combination of creative direction, production discipline and a strong understanding of voice, narrative and audience.</p>
+</div>
+<div class="container">
+<div class="row gy-4">
+<div class="col-lg-4" data-aos="fade-up"><div class="service-item"><div class="icon"><i class="bi bi-bullseye"></i></div><h3>Creative Direction</h3><p>Turning ideas into clear concepts, formats and finished audiovisual work.</p></div></div>
+<div class="col-lg-4" data-aos="fade-up" data-aos-delay="100"><div class="service-item"><div class="icon"><i class="bi bi-kanban"></i></div><h3>Production Leadership</h3><p>Planning productions, coordinating teams and keeping creative and operational priorities aligned.</p></div></div>
+<div class="col-lg-4" data-aos="fade-up" data-aos-delay="200"><div class="service-item"><div class="icon"><i class="bi bi-soundwave"></i></div><h3>Voice & Storytelling</h3><p>Writing, narration and voice performance shaped around clarity, presence and audience connection.</p></div></div>
 </div>
 </div>
 </section>
