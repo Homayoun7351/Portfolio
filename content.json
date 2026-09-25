@@ -274,8 +274,8 @@
       "formats": "90-minute Monthly Ramadan Program · 30 Episodes × 7 Years · 18,900 minutes",
       "status": "No sample available",
       "links": [],
-      "mediaPath": "",
-      "mediaType": "",
+      "mediaPath": "media/project-zyafat-e-noor-1790365505243-zyafat.png",
+      "mediaType": "image",
       "mediaId": ""
     },
     {
@@ -508,6 +508,13 @@
       "type": "image",
       "path": "media/project-soccer-match-1790365471966-footbal.png",
       "projectId": "soccer-match"
+    },
+    {
+      "id": "media-1790365512748",
+      "title": "Zyafat E Noor (Feast of Light) — Project Image",
+      "type": "image",
+      "path": "media/project-zyafat-e-noor-1790365505243-zyafat.png",
+      "projectId": "zyafat-e-noor"
     }
   ],
   "contact": [
