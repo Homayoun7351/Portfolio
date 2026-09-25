@@ -69,26 +69,6 @@
       "mediaId": ""
     },
     {
-      "id": "baba-darya",
-      "title": "BABA DARYA",
-      "label": "Feature Film",
-      "year": "2021–2022",
-      "location": "Tehran",
-      "text": "An ocean scientist drowns and miraculously survives. He firmly believes that Baba Darya — a mythological monster from Persian and Arab folklore who lures sailors to their deaths — saved him.",
-      "role": "Screenwriter",
-      "formats": "120-minute Feature Film · Crime · Horror · Fantasy",
-      "status": "Screenplay",
-      "links": [
-        [
-          "BABA DARYA — Full Screenplay",
-          "https://www.dropbox.com/scl/fi/klol96hebcu1pdouzet7a/BABA-DARYA-Full.docx?rlkey=miwzk23akw4j7fdttaagwsbbv&dl=0"
-        ]
-      ],
-      "mediaPath": "media/project-baba-darya-1790361794795-baba.png",
-      "mediaType": "image",
-      "mediaId": ""
-    },
-    {
       "id": "fifth-council",
       "title": "The Fifth Council",
       "label": "Television",
@@ -104,8 +84,8 @@
           "https://www.dropbox.com/scl/fi/3yr3e3oods07xainy8mhj/Fifth-Council.mp4?rlkey=ri50ma5duf0jp6nstaziqvgwy&dl=0"
         ]
       ],
-      "mediaPath": "media/project-fifth-council-1790361830104-anjoman-e-panjom.jpg",
-      "mediaType": "image",
+      "mediaPath": "",
+      "mediaType": "",
       "mediaId": ""
     },
     {
@@ -436,7 +416,7 @@
       "title": "BABA DARYA — Project Image",
       "type": "image",
       "path": "media/project-baba-darya-1790361794795-baba.png",
-      "projectId": "baba-darya"
+      "projectId": ""
     },
     {
       "id": "media-1790362063695",
@@ -451,13 +431,6 @@
       "type": "image",
       "path": "media/project-da-mother-1790361968139-da.jpg",
       "projectId": "da-mother"
-    },
-    {
-      "id": "media-1790361834201",
-      "title": "The Fifth Council — Project Image",
-      "type": "image",
-      "path": "media/project-fifth-council-1790361830104-anjoman-e-panjom.jpg",
-      "projectId": "fifth-council"
     },
     {
       "id": "media-1790361916295",
