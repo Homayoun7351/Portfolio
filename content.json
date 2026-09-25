@@ -3,7 +3,20 @@
     "name": "HOMAYOUN SHEIKHI",
     "role": "Media Executive · Filmmaker · Creative Producer · Screenwriter",
     "heroText": "More than 25 years of professional experience across television, film, radio and digital media — combining creative leadership, production management and storytelling.",
-    "stats": [["25+","YEARS"],["40,000+","TV MINUTES"],["1,000+","RADIOPOD HOURS"]]
+    "stats": [
+      [
+        "25+",
+        "YEARS"
+      ],
+      [
+        "40,000+",
+        "TV MINUTES"
+      ],
+      [
+        "1,000+",
+        "RADIOPOD HOURS"
+      ]
+    ]
   },
   "about": {
     "intro": "A media professional working across creative development, production, storytelling and original audiovisual content.",
@@ -18,41 +31,373 @@
     "closing": "I have worked across the full life cycle of media projects: concept development, editorial direction, writing, production planning, team leadership, delivery and audience-facing presentation."
   },
   "bring": [
-    {"title":"Creative Direction","text":"Turning ideas into clear concepts, formats and finished audiovisual work.","icon":"bi-bullseye"},
-    {"title":"Production Leadership","text":"Planning productions, coordinating teams and keeping creative and operational priorities aligned.","icon":"bi-kanban"},
-    {"title":"Voice & Storytelling","text":"Writing, narration and voice performance shaped around clarity, presence and audience connection.","icon":"bi-soundwave"}
+    {
+      "title": "Creative Direction",
+      "text": "Turning ideas into clear concepts, formats and finished audiovisual work.",
+      "icon": "bi-bullseye"
+    },
+    {
+      "title": "Production Leadership",
+      "text": "Planning productions, coordinating teams and keeping creative and operational priorities aligned.",
+      "icon": "bi-kanban"
+    },
+    {
+      "title": "Voice & Storytelling",
+      "text": "Writing, narration and voice performance shaped around clarity, presence and audience connection.",
+      "icon": "bi-soundwave"
+    }
   ],
   "projects": [
-    {"id":"film","title":"Film & TV Work","label":"Film & Television","text":"Filmmaking, television production, creative development and production leadership.","role":"Filmmaker · Creative Producer · Production Manager","formats":"Film · Television · Documentary · Video","status":"Selected work","mediaPath":"","mediaType":""},
-    {"id":"radiopod","title":"RadioPod","label":"Radio & Audio","text":"Original radio, documentary, podcast and voice-oriented audio work.","role":"Founder · Producer · Narrator","formats":"Radio · Documentary · Podcast · Voice","status":"Original project","mediaPath":"","mediaType":""},
-    {"id":"writing","title":"Screenwriting","label":"Writing","text":"Screenplays, story concepts, narrative development and creative writing.","role":"Screenwriter · Story Developer","formats":"Screenplay · Story · Narrative Development","status":"Selected work","mediaPath":"","mediaType":""},
-    {"id":"management","title":"Media Management","label":"Leadership","text":"Creative teams, production planning, workflow and large-scale media operations.","role":"Media Executive · Creative Producer · Production Manager","formats":"Production · Management · Editorial · Team Leadership","status":"Professional expertise","mediaPath":"","mediaType":""}
+    {
+      "id": "radiopod",
+      "title": "RadioPod Podcast",
+      "label": "Radio & Podcast",
+      "year": "2020–present",
+      "location": "",
+      "text": "A podcast series covering literary, social, philosophical and storytelling topics, including children’s content. Currently in production.",
+      "role": "Owner · Writer · Audio Editor · Narrator",
+      "formats": "Podcast · Radio · Storytelling · Children’s Content",
+      "status": "Currently in production",
+      "links": [
+        [
+          "RadioPod — Telegram",
+          "https://t.me/Radio_pod"
+        ],
+        [
+          "RadioPod Kids — Telegram",
+          "https://t.me/radiopodkids"
+        ],
+        [
+          "RadioPod — Sample — Telegram",
+          "https://t.me/nemoonekar_radiopod"
+        ],
+        [
+          "RadioPod — YouTube",
+          "https://www.youtube.com/@radio-pod"
+        ],
+        [
+          "RadioPod — X",
+          "https://x.com/radiopoddd"
+        ]
+      ]
+    },
+    {
+      "id": "baba-darya",
+      "title": "BABA DARYA",
+      "label": "Feature Film",
+      "year": "2021–2022",
+      "location": "Tehran",
+      "text": "An ocean scientist drowns and miraculously survives. He firmly believes that Baba Darya — a mythological monster from Persian and Arab folklore who lures sailors to their deaths — saved him.",
+      "role": "Screenwriter",
+      "formats": "120-minute Feature Film · Crime · Horror · Fantasy",
+      "status": "Screenplay",
+      "links": [
+        [
+          "BABA DARYA — Full Screenplay",
+          "https://www.dropbox.com/scl/fi/klol96hebcu1pdouzet7a/BABA-DARYA-Full.docx?rlkey=miwzk23akw4j7fdttaagwsbbv&dl=0"
+        ]
+      ]
+    },
+    {
+      "id": "fifth-council",
+      "title": "The Fifth Council",
+      "label": "Television",
+      "year": "September 2020 – March 2021",
+      "location": "Tehran",
+      "text": "A talk show in which Tehran City Council members debate urban issues and explore solutions.",
+      "role": "Director · Executive Producer",
+      "formats": "60-minute TV Talk Show",
+      "status": "Selected work",
+      "links": [
+        [
+          "The Fifth Council — Video",
+          "https://www.dropbox.com/scl/fi/3yr3e3oods07xainy8mhj/Fifth-Council.mp4?rlkey=ri50ma5duf0jp6nstaziqvgwy&dl=0"
+        ]
+      ]
+    },
+    {
+      "id": "hope-dead-end",
+      "title": "Hope Dead End",
+      "label": "Short Film",
+      "year": "October 2016",
+      "location": "Isfahan",
+      "text": "A man arrives at a hospital with his wife’s medical records showing liver failure. The social worker informs him that a liver transplant has been preliminarily approved — provided his wife is hospitalised for monitoring.",
+      "role": "Writer · Director · Editor · Producer",
+      "formats": "15-minute Short Film",
+      "status": "Selected work",
+      "links": [
+        [
+          "Hope Dead End — Film",
+          "https://www.dropbox.com/scl/fi/7lnm5rdbc0av111j5sty9/HOPE-DEAD-END-1080.MP4?rlkey=kwz1u40a957574v4ggo22n0lh&dl=0"
+        ]
+      ]
+    },
+    {
+      "id": "ab-o-khak",
+      "title": "Ab o Khak (Territory / Homeland)",
+      "label": "Feature Film",
+      "year": "2014",
+      "location": "Isfahan",
+      "text": "After the body of an Iraqi soldier from the Iran–Iraq war (1980–1988) is discovered on the Arvand River shoreline, three families from Iran, Iraq and the UK — from three different decades — meet in strange circumstances.",
+      "role": "Screenwriter",
+      "formats": "120-minute Feature Film · War · Drama",
+      "status": "Screenplay",
+      "links": [
+        [
+          "Ab o Khak — Screenplay",
+          "https://www.dropbox.com/scl/fi/l8ufdt3xb50ydhoe8cebf/Homayoun-sheikhi-TERRITORY.pdf?rlkey=x1jqs9ryb7s9gaya4yttaoyni&dl=0"
+        ]
+      ]
+    },
+    {
+      "id": "giti-to-ra-pasandid",
+      "title": "Giti to ra pasandid (The World Likes You)",
+      "label": "Documentary",
+      "year": "2013",
+      "location": "Nagoya, Japan",
+      "text": "A report on the 2013 Asian Futsal Championship in Nagoya, focusing on the Iranian team Giti Pasand, which won second place.",
+      "role": "Producer · Director · Writer · Editor",
+      "formats": "50-minute Documentary",
+      "status": "Selected work",
+      "links": [
+        [
+          "The World Likes You — Film",
+          "https://www.dropbox.com/scl/fi/lhr35ui1c9ntmko4xzh0a/92.mp4?rlkey=kwz1u40a957574v4ggo22n0lh&dl=0"
+        ]
+      ]
+    },
+    {
+      "id": "abadan-refinery",
+      "title": "ABADAN Refinery",
+      "label": "Industrial Documentary",
+      "year": "2010",
+      "location": "Abadan",
+      "text": "An introduction to Iran’s most famous oil refinery.",
+      "role": "Producer · Director · Editor",
+      "formats": "15-minute Industrial Documentary",
+      "status": "No sample available",
+      "links": []
+    },
+    {
+      "id": "da-mother",
+      "title": "DA (Mother)",
+      "label": "Documentary",
+      "year": "2009",
+      "location": "Abadan",
+      "text": "Based on the best-selling book “One Woman’s War”, this film tells the story of Seyyedeh Zahra Hosseini, a 17-year-old girl during the Iran–Iraq war in 1980 who defended her city of Khorramshahr. It offers both an epic account of resistance and a critical view of war’s destructive effects.",
+      "role": "Producer · Director · Writer · Editor",
+      "formats": "29-minute Narrative Documentary",
+      "status": "Selected work",
+      "links": [
+        [
+          "DA — Film",
+          "https://www.dropbox.com/scl/fi/umuc345bkubpes45ygtb3/Da-Mother.MP4?rlkey=kwz1c0v0av1j6jxfc65cw&dl=0"
+        ],
+        [
+          "DA — JameJam Article",
+          "https://jamejamonline.ir/fa/news/255151/%D8%B3%D8%A7%D8%AE%D8%AA-%D9%85%D8%B3%D8%AA%D9%86%D8%AF-%D8%AA%D9%84%D9%88%DB%8C%D8%B2%DB%8C%D9%86%D9%88%D8%86%DB%8C-%D8%AF%D8%A7-%D8%AF%D8%B1-%D8%A2%D8%A8%D8%A7%D8%AF%D8%A7%D9%86"
+        ],
+        [
+          "DA — IRNA Article",
+          "https://www.irna.ir/amp/9669670/"
+        ]
+      ]
+    },
+    {
+      "id": "tar-o-poud",
+      "title": "TAR O POUD (Warp and Woof)",
+      "label": "Television",
+      "year": "2008",
+      "location": "Abadan",
+      "text": "A live weekly TV talk show discussing social issues, featuring debate between experts and audiences, TV reports, video clips, phone contests and more.",
+      "role": "Director · Writer · Host",
+      "formats": "60-minute Weekly Live Talk Show · 13 Episodes · 780 minutes",
+      "status": "No sample available",
+      "links": []
+    },
+    {
+      "id": "sayeboone-asheghi",
+      "title": "Sayeboone Asheghi (Love Tent)",
+      "label": "Television",
+      "year": "2006",
+      "location": "Abadan",
+      "text": "A live weekly talk show about family and love between couples, hosted by a male–female duo. Topics included family relationships, debates, guest interviews, TV reports and video clips.",
+      "role": "Director · Writer · Host · Executive Manager",
+      "formats": "60-minute Weekly Talk Show · 26 Episodes · 1,560 minutes",
+      "status": "No sample available",
+      "links": []
+    },
+    {
+      "id": "breaking-point",
+      "title": "Breaking Point",
+      "label": "TV Film",
+      "year": "Year not specified",
+      "location": "",
+      "text": "A struggling local football team keeps losing due to technical problems — until a war-veteran coach steps in to rebuild the team and lead the team to championship victory.",
+      "role": "Executive Manager · Actor",
+      "formats": "120-minute TV Film · Sports Drama",
+      "status": "Selected work",
+      "links": [
+        [
+          "Breaking Point — Telewebion",
+          "https://telewebion.com/episode/0x2850904"
+        ],
+        [
+          "Breaking Point — Mehr News",
+          "https://www.mehrnews.com/news/800577/%D9%86%D9%82%D8%B7%D9%87-%D8%B1%D9%87%D8%A7%DB%8C%DB%8C-%D9%81%D8%B1%D8%AF%D8%A7-%D8%A7%D8%B2-%D8%B4%D8%A8%DA%A9%D9%87-%D8%AF%D9%88-%D9%BE%D8%AE%D8%B4-%D9%85%DB%8C%D8%B4%D9%88%D8%AF"
+        ]
+      ]
+    },
+    {
+      "id": "kankash",
+      "title": "Kankash (Probing)",
+      "label": "Television",
+      "year": "2004–2006",
+      "location": "Abadan",
+      "text": "A challenging live talk show about urban problems. Proponents and opponents debated each issue, while the host aimed to reach conclusions and practical solutions. Included citizen opinions and TV reports.",
+      "role": "Director · Host · Executive Manager · Writer",
+      "formats": "60-minute Weekly Live Talk Show · 104 Episodes · 6,240 minutes",
+      "status": "No sample available",
+      "links": []
+    },
+    {
+      "id": "soccer-match",
+      "title": "Soccer Match",
+      "label": "Sports Broadcast",
+      "year": "2004–2006",
+      "location": "Abadan",
+      "text": "Live broadcasting of super league soccer matches with halftime commentary.",
+      "role": "TV Director · Executive Manager",
+      "formats": "120-minute Fortnightly Sports Broadcast · 52 Episodes · 6,240 minutes",
+      "status": "No sample available",
+      "links": []
+    },
+    {
+      "id": "zyafat-e-noor",
+      "title": "Zyafat E Noor (Feast of Light)",
+      "label": "Television",
+      "year": "1999–2006",
+      "location": "Abadan",
+      "text": "A festive live TV show for Ramadan that ran for seven years due to audience demand. Included guest appearances, music performances, video game contests, cooking instructions, TV reports, medical discussions and segments on notable individuals.",
+      "role": "Producer · Director · Writer · Presenter · Video Editor",
+      "formats": "90-minute Monthly Ramadan Program · 30 Episodes × 7 Years · 18,900 minutes",
+      "status": "No sample available",
+      "links": []
+    },
+    {
+      "id": "masir",
+      "title": "Masir (Path)",
+      "label": "Television",
+      "year": "2001",
+      "location": "Abadan",
+      "text": "A weekly TV show about youth issues, featuring debates, TV reports, music and entertainment.",
+      "role": "Producer · Director · Writer · Host · Video Editor",
+      "formats": "45-minute Weekly Show · 26 Episodes · 1,170 minutes",
+      "status": "No sample available",
+      "links": []
+    },
+    {
+      "id": "javaneha",
+      "title": "Javaneha (Buds)",
+      "label": "Children’s Television",
+      "year": "1998–2001",
+      "location": "Abadan",
+      "text": "A multi-item children’s TV show — my first professional production as a TV producer. Included music, painting instruction, handicrafts, cartoons, contests and more. Praised for its innovative approach.",
+      "role": "Producer · Director · Writer · Video Editor",
+      "formats": "45-minute Show · 4 Episodes per Week · 200 Episodes per Year × 3 Years · 27,000 minutes",
+      "status": "Selected work",
+      "links": []
+    },
+    {
+      "id": "animation-units",
+      "title": "Founder of Two Animation Units",
+      "label": "Animation & Media Management",
+      "year": "2004–2008",
+      "location": "",
+      "text": "Founded and managed two digital animation units producing 2D and 3D short and series animation for broadcast.",
+      "role": "Senior Executive Manager",
+      "formats": "2D & 3D Animation · Short & Series Production",
+      "status": "Professional achievement",
+      "links": []
+    }
   ],
   "experience": [
-    ["Television & Media Production","More than 40,000 minutes of television programming, alongside production planning, creative development and media management."],
-    ["RadioPod","Founder of an independent audio/media project with more than 1,000 hours of original programming across radio, documentary and podcast formats."],
-    ["Animation & Training","Founded two animation units and contributed to the development and training of media production staff."]
+    [
+      "Television & Media Production",
+      "More than 40,000 minutes of television programming, alongside production planning, creative development and media management."
+    ],
+    [
+      "RadioPod",
+      "Founder of an independent audio/media project with more than 1,000 hours of original programming across radio, documentary and podcast formats."
+    ],
+    [
+      "Animation & Training",
+      "Founded two animation units and contributed to the development and training of media production staff."
+    ]
   ],
   "roles": [
-    ["Creative Producer & Production Manager","Creative leadership, production planning, team coordination, editorial development and delivery."],
-    ["Filmmaker & Screenwriter","Film and documentary development, screenwriting, storytelling and audiovisual production."],
-    ["Radio Producer · Narrator · Voice Artist","Original programming, documentary audio, narration, voice performance and presenter-oriented audio work."],
-    ["Digital Media","Development of original content for contemporary digital and omnichannel environments."]
+    [
+      "Creative Producer & Production Manager",
+      "Creative leadership, production planning, team coordination, editorial development and delivery."
+    ],
+    [
+      "Filmmaker & Screenwriter",
+      "Film and documentary development, screenwriting, storytelling and audiovisual production."
+    ],
+    [
+      "Radio Producer · Narrator · Voice Artist",
+      "Original programming, documentary audio, narration, voice performance and presenter-oriented audio work."
+    ],
+    [
+      "Digital Media",
+      "Development of original content for contemporary digital and omnichannel environments."
+    ]
   ],
   "expertise": [
-    ["Media Management","Creative leadership, production planning, team coordination and editorial development."],
-    ["Film & Documentary","Filmmaking, documentary development, storytelling and production."],
-    ["Screenwriting","Story concepts, screenplays and narrative development."],
-    ["Radio & Audio","Radio production, documentary audio, podcasting and original programming."],
-    ["Voice & Narration","Professional narration, voice performance and presenter-oriented audio work."],
-    ["Digital Media","Original content development for contemporary digital and omnichannel environments."]
+    [
+      "Media Management",
+      "Creative leadership, production planning, team coordination and editorial development."
+    ],
+    [
+      "Film & Documentary",
+      "Filmmaking, documentary development, storytelling and production."
+    ],
+    [
+      "Screenwriting",
+      "Story concepts, screenplays and narrative development."
+    ],
+    [
+      "Radio & Audio",
+      "Radio production, documentary audio, podcasting and original programming."
+    ],
+    [
+      "Voice & Narration",
+      "Professional narration, voice performance and presenter-oriented audio work."
+    ],
+    [
+      "Digital Media",
+      "Original content development for contemporary digital and omnichannel environments."
+    ]
   ],
-  "media": [
-    {"id":"media-1790347064508","title":"هدر","type":"image","path":"media/Gemini_Generated_Image_c9kuxzc9kuxzc9ku.jpg","projectId":""}
-  ],
+  "media": [],
   "contact": [
-    {"title":"Address","value":"Tehran, Iran","icon":"bi-geo-alt","link":""},
-    {"title":"Email","value":"sheikhi.h@gmail.com","icon":"bi-envelope","link":"mailto:sheikhi.h@gmail.com"},
-    {"title":"Phone","value":"+98 920 500 1285","icon":"bi-telephone","link":"tel:+989205001285"}
+    {
+      "title": "Address",
+      "value": "Tehran, Iran",
+      "icon": "bi-geo-alt",
+      "link": ""
+    },
+    {
+      "title": "Email",
+      "value": "sheikhi.h@gmail.com",
+      "icon": "bi-envelope",
+      "link": "mailto:sheikhi.h@gmail.com"
+    },
+    {
+      "title": "Phone",
+      "value": "+98 920 500 1285",
+      "icon": "bi-telephone",
+      "link": "tel:+989205001285"
+    }
   ]
 }
