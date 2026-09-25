@@ -103,7 +103,7 @@ html{scroll-behavior:smooth}
 .stats .stats-item p{color:#6b7280;font-size:15px;margin-left:60px;margin-top:10px}
 .stats .stats-item p strong{font-weight:700;color:#272829}
 </style>
-<script src="https://cdn.jsdelivr.net/npm/@srexi/purecounterjs@1.5.1/dist/purecounter_vanilla.js"></script>
+<script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
 </head>
 <body class="index-page">
 <header id="header" class="header dark-background d-flex flex-column">
@@ -161,31 +161,38 @@ html{scroll-behavior:smooth}
 </section>
 
 <section id="stats" class="stats section">
-<div class="container">
+
+<div class="container" data-aos="fade-up" data-aos-delay="100">
+
 <div class="row gy-4">
+
 <div class="col-lg-4 col-md-6">
 <div class="stats-item">
 <i class="bi bi-calendar3"></i>
-<span data-purecounter-start="0" data-purecounter-end="25" data-purecounter-duration="1" class="purecounter">0</span>
+<span data-purecounter-start="0" data-purecounter-end="25" data-purecounter-duration="1" class="purecounter"></span>
 <p><strong>Years</strong> <span>of professional media experience</span></p>
 </div>
 </div>
+
 <div class="col-lg-4 col-md-6">
 <div class="stats-item">
 <i class="bi bi-tv"></i>
-<span data-purecounter-start="0" data-purecounter-end="40000" data-purecounter-duration="1" class="purecounter">0</span>
+<span data-purecounter-start="0" data-purecounter-end="40000" data-purecounter-duration="1" class="purecounter"></span>
 <p><strong>TV Minutes</strong> <span>of television programming</span></p>
 </div>
 </div>
+
 <div class="col-lg-4 col-md-6">
 <div class="stats-item">
 <i class="bi bi-mic"></i>
-<span data-purecounter-start="0" data-purecounter-end="1000" data-purecounter-duration="1" class="purecounter">0</span>
+<span data-purecounter-start="0" data-purecounter-end="1000" data-purecounter-duration="1" class="purecounter"></span>
 <p><strong>RadioPod Hours</strong> <span>of original programming</span></p>
 </div>
 </div>
+
 </div>
 </div>
+
 </section>
 
 <section id="approach" class="services section light-background">
@@ -281,10 +288,8 @@ fetch('content.json').then(r=>r.json()).then(d=>{
 }).catch(e=>console.error(e));
 document.querySelector('.header-toggle')?.addEventListener('click',()=>document.querySelector('#header').classList.toggle('header-show'));
 
-// Start the iPortfolio-style counters when the Stats section enters the viewport.
-window.addEventListener('load',()=>{
-  if(window.PureCounter){ new PureCounter(); }
-});
+// Original iPortfolio counter initialization.
+if(window.PureCounter){ new PureCounter(); }
 </script>
 </body>
 </html>
