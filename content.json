@@ -404,13 +404,6 @@
   ],
   "media": [
     {
-      "id": "media-7b61db55e0d26ea08b06efb2de0eb36a749f2933",
-      "title": "Gemini_Generated_Image_c9kuxzc9kuxzc9ku.jpg",
-      "type": "image",
-      "path": "media/Gemini_Generated_Image_c9kuxzc9kuxzc9ku.jpg",
-      "projectId": ""
-    },
-    {
       "id": "media-1790364995257",
       "title": "Ab o Khak (Territory / Homeland) — Project Image",
       "type": "image",
@@ -430,6 +423,13 @@
       "type": "image",
       "path": "media/project-animation-units-1790365676847-animation.png",
       "projectId": "animation-units"
+    },
+    {
+      "id": "media-1790365866599",
+      "title": "BABA DARYA — Project Image",
+      "type": "image",
+      "path": "media/project-baba-darya-1790365864491-baba.png",
+      "projectId": "baba-darya"
     },
     {
       "id": "media-1790365393511",
@@ -481,13 +481,6 @@
       "projectId": "kankash"
     },
     {
-      "id": "media-1790362180523",
-      "title": "Masir (Path) — Project Image",
-      "type": "image",
-      "path": "media/project-masir-1790362172926-masir.jpg",
-      "projectId": ""
-    },
-    {
       "id": "media-1790365544942",
       "title": "Masir (Path) — Project Image",
       "type": "image",
@@ -530,11 +523,11 @@
       "projectId": "zyafat-e-noor"
     },
     {
-      "id": "media-1790365866599",
-      "title": "BABA DARYA — Project Image",
+      "id": "media-1790366600989",
+      "title": "Gemini_Generated_Image_abc08habc08habc0.jpg",
       "type": "image",
-      "path": "media/project-baba-darya-1790365864491-baba.png",
-      "projectId": "baba-darya"
+      "path": "media/hero-1790366592430-hero-1790366592430-Gemini_Generated_Image_abc08habc08habc0.jpg",
+      "projectId": ""
     }
   ],
   "contact": [
