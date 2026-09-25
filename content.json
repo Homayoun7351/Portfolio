@@ -209,8 +209,8 @@
       "formats": "60-minute Weekly Talk Show · 26 Episodes · 1,560 minutes",
       "status": "No sample available",
       "links": [],
-      "mediaPath": "media/project-sayeboone-asheghi-1790362021816-sayeboone-asheghi.jpg",
-      "mediaType": "image",
+      "mediaPath": "",
+      "mediaType": "",
       "mediaId": ""
     },
     {
@@ -438,13 +438,6 @@
       "type": "image",
       "path": "media/project-masir-1790362222091-masir.jpg",
       "projectId": "masir"
-    },
-    {
-      "id": "media-1790362025813",
-      "title": "Sayeboone Asheghi (Love Tent) — Project Image",
-      "type": "image",
-      "path": "media/project-sayeboone-asheghi-1790362021816-sayeboone-asheghi.jpg",
-      "projectId": "sayeboone-asheghi"
     },
     {
       "id": "media-1790362106518",
