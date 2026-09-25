@@ -304,8 +304,8 @@
       "formats": "45-minute Show · 4 Episodes per Week · 200 Episodes per Year × 3 Years · 27,000 minutes",
       "status": "Selected work",
       "links": [],
-      "mediaPath": "",
-      "mediaType": "",
+      "mediaPath": "media/project-javaneha-1790365610644-kooda.png",
+      "mediaType": "image",
       "mediaId": ""
     },
     {
@@ -508,6 +508,13 @@
       "type": "image",
       "path": "media/project-masir-1790365536990-masir.png",
       "projectId": "masir"
+    },
+    {
+      "id": "media-1790365618742",
+      "title": "Javaneha (Buds) — Project Image",
+      "type": "image",
+      "path": "media/project-javaneha-1790365610644-kooda.png",
+      "projectId": "javaneha"
     }
   ],
   "contact": [
