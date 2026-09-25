@@ -304,8 +304,8 @@
       "formats": "45-minute Show · 4 Episodes per Week · 200 Episodes per Year × 3 Years · 27,000 minutes",
       "status": "Selected work",
       "links": [],
-      "mediaPath": "media/project-javaneha-1790362243530-koodak.jpg",
-      "mediaType": "image",
+      "mediaPath": "",
+      "mediaType": "",
       "mediaId": ""
     },
     {
@@ -403,13 +403,6 @@
       "type": "image",
       "path": "media/project-baba-darya-1790361794795-baba.png",
       "projectId": ""
-    },
-    {
-      "id": "media-1790362246152",
-      "title": "Javaneha (Buds) — Project Image",
-      "type": "image",
-      "path": "media/project-javaneha-1790362243530-koodak.jpg",
-      "projectId": "javaneha"
     },
     {
       "id": "media-1790362180523",
