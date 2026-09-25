@@ -144,8 +144,8 @@
           "https://www.dropbox.com/scl/fi/lhr35ui1c9ntmko4xzh0a/92.mp4?rlkey=kwz1u40a957574v4ggo22n0lh&dl=0"
         ]
       ],
-      "mediaPath": "",
-      "mediaType": "",
+      "mediaPath": "media/project-giti-to-ra-pasandid-1790365209786-giti.png",
+      "mediaType": "image",
       "mediaId": ""
     },
     {
@@ -508,6 +508,13 @@
       "type": "image",
       "path": "media/project-ab-o-khak-1790364992622-abo.png",
       "projectId": "ab-o-khak"
+    },
+    {
+      "id": "media-1790365217467",
+      "title": "Giti to ra pasandid (The World Likes You) — Project Image",
+      "type": "image",
+      "path": "media/project-giti-to-ra-pasandid-1790365209786-giti.png",
+      "projectId": "giti-to-ra-pasandid"
     }
   ],
   "contact": [
