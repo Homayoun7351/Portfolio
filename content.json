@@ -263,7 +263,10 @@
       "role": "Director · Host · Executive Manager · Writer",
       "formats": "60-minute Weekly Live Talk Show · 104 Episodes · 6,240 minutes",
       "status": "No sample available",
-      "links": []
+      "links": [],
+      "mediaPath": "media/project-kankash-1790362081653-.jpg",
+      "mediaType": "image",
+      "mediaId": ""
     },
     {
       "id": "soccer-match",
@@ -468,6 +471,13 @@
       "type": "image",
       "path": "media/project-breaking-point-1790362058426-noghteye-rahaee.jpg",
       "projectId": "breaking-point"
+    },
+    {
+      "id": "media-1790362086429",
+      "title": "Kankash (Probing) — Project Image",
+      "type": "image",
+      "path": "media/project-kankash-1790362081653-.jpg",
+      "projectId": "kankash"
     }
   ],
   "contact": [
