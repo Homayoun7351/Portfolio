@@ -41,10 +41,22 @@
 .stat{padding:28px;border-radius:12px;background:#fff;box-shadow:0 8px 28px #00000012;height:100%}
 .stat strong{display:block;font-size:2rem;color:#149ddd}
 .note{border-left:3px solid #149ddd;padding-left:18px}
-.navmenu a.active{color:#149ddd!important}
-.navmenu a{transition:color .2s ease}
+.navmenu a{position:relative;transition:all .2s ease;border-radius:8px;margin:4px 14px;padding:12px 16px!important}
+.navmenu a .navicon{transition:transform .2s ease}
+.navmenu a:hover{background:rgba(255,255,255,.06);color:#fff!important}
+.navmenu a:hover .navicon{transform:translateX(2px)}
+.navmenu a.active{color:#149ddd!important;background:rgba(20,157,221,.10)}
+.navmenu a.active::before{content:"";position:absolute;left:0;top:10px;bottom:10px;width:3px;border-radius:3px;background:#149ddd}
+.navmenu a.active .navicon{color:#149ddd!important}
+#header .logo{padding:30px 20px 24px}
+#header .logo h1{font-size:23px;letter-spacing:.2px}
+#navmenu ul{padding:8px 0}
 .main section{scroll-margin-top:20px}
-@media(max-width:1199px){.navmenu a.active{background:transparent}}
+html{scroll-behavior:smooth}
+@media(max-width:1199px){
+  .navmenu a.active{background:rgba(20,157,221,.10)}
+  .navmenu a.active::before{display:none}
+}
 </style>
 </head>
 <body class="index-page">
@@ -144,18 +156,27 @@
 <script>
 const navLinks=[...document.querySelectorAll('#navmenu a[href^="#"]')];
 const sections=navLinks.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
+
 function setActiveNav(){
- const y=window.scrollY+window.innerHeight*.32;
+ const marker=window.scrollY+window.innerHeight*0.38;
  let current=sections[0];
- sections.forEach(sec=>{if(sec.offsetTop<=y)current=sec});
+ sections.forEach(sec=>{if(sec.offsetTop<=marker)current=sec});
  navLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+current.id));
 }
-navLinks.forEach(a=>a.addEventListener('click',()=>{
+
+navLinks.forEach(a=>a.addEventListener('click',e=>{
+ const target=document.querySelector(a.getAttribute('href'));
+ if(target){
+   e.preventDefault();
+   target.scrollIntoView({behavior:'smooth',block:'start'});
+ }
  navLinks.forEach(x=>x.classList.remove('active'));
  a.classList.add('active');
  document.querySelector('#header')?.classList.remove('header-show');
 }));
+
 window.addEventListener('scroll',setActiveNav,{passive:true});
+window.addEventListener('resize',setActiveNav);
 window.addEventListener('load',setActiveNav);
 
 const escHtml=s=>String(s??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\"/g,'&quot;');
