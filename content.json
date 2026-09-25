@@ -159,5 +159,19 @@
       "path": "media/Gemini_Generated_Image_c9kuxzc9kuxzc9ku.jpg",
       "projectId": ""
     }
+  ],
+  "contact": [
+    {
+      "title": "Professional Inquiries",
+      "value": "Film, television, radio, creative production, media management and voice work.",
+      "icon": "bi-briefcase",
+      "link": ""
+    },
+    {
+      "title": "Portfolio Repository",
+      "value": "github.com/Homayoun7351/Portfolio",
+      "icon": "bi-github",
+      "link": "https://github.com/Homayoun7351/Portfolio"
+    }
   ]
 }
