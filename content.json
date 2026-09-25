@@ -104,8 +104,8 @@
           "https://www.dropbox.com/scl/fi/7lnm5rdbc0av111j5sty9/HOPE-DEAD-END-1080.MP4?rlkey=kwz1u40a957574v4ggo22n0lh&dl=0"
         ]
       ],
-      "mediaPath": "",
-      "mediaType": "",
+      "mediaPath": "media/project-hope-dead-end-1790364827435-bonbas.png",
+      "mediaType": "image",
       "mediaId": ""
     },
     {
@@ -494,6 +494,13 @@
       "type": "image",
       "path": "media/project-fifth-council-1790364797527-anjoman.png",
       "projectId": "fifth-council"
+    },
+    {
+      "id": "media-1790364833268",
+      "title": "Hope Dead End — Project Image",
+      "type": "image",
+      "path": "media/project-hope-dead-end-1790364827435-bonbas.png",
+      "projectId": "hope-dead-end"
     }
   ],
   "contact": [
