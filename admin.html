@@ -124,7 +124,14 @@ function decodeContent(s){
 function encodeContent(s){return btoa(unescape(encodeURIComponent(s)));}
 
 async function syncMediaFromRepository(){
-  const list=await github('/repos/'+owner+'/'+repo+'/contents/media?ref='+encodeURIComponent(branch));
+  let list=[];
+  try{
+    list=await github('/repos/'+owner+'/'+repo+'/contents/media?ref='+encodeURIComponent(branch));
+  }catch(e){
+    if(!String(e.message||'').includes('(HTTP 404)')) throw e;
+    data.media=data.media||[];
+    return;
+  }
   if(!Array.isArray(list)) return;
   const known=new Map((data.media||[]).map(m=>[m.path,m]));
   const files=list.filter(x=>x.type==='file');
