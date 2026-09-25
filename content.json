@@ -228,7 +228,10 @@
       "role": "Director · Writer · Host · Executive Manager",
       "formats": "60-minute Weekly Talk Show · 26 Episodes · 1,560 minutes",
       "status": "No sample available",
-      "links": []
+      "links": [],
+      "mediaPath": "media/project-sayeboone-asheghi-1790362021816-sayeboone-asheghi.jpg",
+      "mediaType": "image",
+      "mediaId": ""
     },
     {
       "id": "breaking-point",
@@ -448,6 +451,13 @@
       "type": "image",
       "path": "media/project-tar-o-poud-1790361996705-taropood.jpg",
       "projectId": "tar-o-poud"
+    },
+    {
+      "id": "media-1790362025813",
+      "title": "Sayeboone Asheghi (Love Tent) — Project Image",
+      "type": "image",
+      "path": "media/project-sayeboone-asheghi-1790362021816-sayeboone-asheghi.jpg",
+      "projectId": "sayeboone-asheghi"
     }
   ],
   "contact": [
