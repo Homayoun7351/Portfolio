@@ -244,8 +244,8 @@
       "formats": "60-minute Weekly Live Talk Show · 104 Episodes · 6,240 minutes",
       "status": "No sample available",
       "links": [],
-      "mediaPath": "",
-      "mediaType": "",
+      "mediaPath": "media/project-kankash-1790365431392-kankash.png",
+      "mediaType": "image",
       "mediaId": ""
     },
     {
@@ -508,6 +508,13 @@
       "type": "image",
       "path": "media/project-breaking-point-1790365385544-noghte.png",
       "projectId": "breaking-point"
+    },
+    {
+      "id": "media-1790365439406",
+      "title": "Kankash (Probing) — Project Image",
+      "type": "image",
+      "path": "media/project-kankash-1790365431392-kankash.png",
+      "projectId": "kankash"
     }
   ],
   "contact": [
