@@ -323,7 +323,10 @@
       "role": "Producer · Director · Writer · Video Editor",
       "formats": "45-minute Show · 4 Episodes per Week · 200 Episodes per Year × 3 Years · 27,000 minutes",
       "status": "Selected work",
-      "links": []
+      "links": [],
+      "mediaPath": "media/project-javaneha-1790362243530-koodak.jpg",
+      "mediaType": "image",
+      "mediaId": ""
     },
     {
       "id": "animation-units",
@@ -515,6 +518,13 @@
       "type": "image",
       "path": "media/project-masir-1790362222091-masir.jpg",
       "projectId": "masir"
+    },
+    {
+      "id": "media-1790362246152",
+      "title": "Javaneha (Buds) — Project Image",
+      "type": "image",
+      "path": "media/project-javaneha-1790362243530-koodak.jpg",
+      "projectId": "javaneha"
     }
   ],
   "contact": [
