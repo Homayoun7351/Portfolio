@@ -19,8 +19,8 @@
 .portfolio-slider-wrap{position:relative;display:flex;align-items:center;gap:18px}
 .portfolio-viewport{width:100%;overflow:hidden}
 .portfolio-grid{margin-left:-12px;margin-right:-12px}
-.portfolio-grid.portfolio-fading{opacity:0;transform:translateX(12px)}
-.portfolio-grid{opacity:1;transform:translateX(0);transition:opacity .32s ease,transform .32s ease}
+.portfolio-grid.portfolio-fading{opacity:0;transform:translateX(55px)}
+.portfolio-grid{opacity:1;transform:translateX(0);transition:opacity 1s ease,transform 1s cubic-bezier(.22,.61,.36,1)}
 .portfolio-arrow{width:48px;height:48px;min-width:48px;border:0;border-radius:50%;background:#149ddd;color:#fff;display:flex;align-items:center;justify-content:center;font-size:24px;box-shadow:0 5px 18px rgba(20,157,221,.22);transition:all .25s ease;z-index:4}
 .portfolio-arrow:hover:not(:disabled){background:#128ac4;transform:scale(1.06)}
 .portfolio-arrow:disabled{opacity:.25;cursor:not-allowed;box-shadow:none}
@@ -97,7 +97,7 @@ function renderPortfolioPage(page,animate=true){
     portfolioNext.disabled=portfolioPage===totalPages-1;
     if(window.GLightbox) GLightbox({selector:'.glightbox'});
   };
-  if(animate){projects.classList.add('portfolio-fading');setTimeout(()=>{render();requestAnimationFrame(()=>projects.classList.remove('portfolio-fading'))},220)}
+  if(animate){projects.classList.add('portfolio-fading');setTimeout(()=>{render();requestAnimationFrame(()=>projects.classList.remove('portfolio-fading'))},420)}
   else render();
 }
 portfolioPrev.addEventListener('click',()=>renderPortfolioPage(portfolioPage-1));
