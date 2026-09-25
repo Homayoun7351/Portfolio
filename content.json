@@ -1,0 +1,134 @@
+{
+  "site": {
+    "name": "Homayoun Sheikhi",
+    "role": "Media Executive · Filmmaker · Creative Producer · Screenwriter",
+    "heroText": "More than 25 years of professional experience across television, film, radio and digital media — combining creative leadership, production management and storytelling.",
+    "stats": [
+      [
+        "25+",
+        "YEARS"
+      ],
+      [
+        "40,000+",
+        "TV MINUTES"
+      ],
+      [
+        "1,000+",
+        "RADIOPOD HOURS"
+      ]
+    ]
+  },
+  "about": {
+    "intro": "A media professional working across creative development, production, storytelling and original audiovisual content.",
+    "heading": "Media leadership with a storyteller's perspective.",
+    "text": "My work brings together creative development, production management and storytelling — from large-scale television programming to independent radio, documentary and digital projects.",
+    "fields": "TV · Film · Radio · Digital",
+    "leadership": "Creative & Production Management",
+    "content": "Original Audiovisual Work",
+    "roles": "Producer · Writer · Filmmaker",
+    "audio": "Voice Artist · Narrator",
+    "project": "RadioPod",
+    "closing": "I have worked across the full life cycle of media projects: concept development, editorial direction, writing, production planning, team leadership, delivery and audience-facing presentation."
+  },
+  "bring": [
+    {
+      "title": "Creative Direction",
+      "text": "Turning ideas into clear concepts, formats and finished audiovisual work.",
+      "icon": "bi-bullseye"
+    },
+    {
+      "title": "Production Leadership",
+      "text": "Planning productions, coordinating teams and keeping creative and operational priorities aligned.",
+      "icon": "bi-kanban"
+    },
+    {
+      "title": "Voice & Storytelling",
+      "text": "Writing, narration and voice performance shaped around clarity, presence and audience connection.",
+      "icon": "bi-soundwave"
+    }
+  ],
+  "projects": [
+    {
+      "id": "film",
+      "title": "Film & TV Work",
+      "label": "Film & Television",
+      "text": "Filmmaking, television production, creative development and production leadership."
+    },
+    {
+      "id": "radiopod",
+      "title": "RadioPod",
+      "label": "Radio & Audio",
+      "text": "Original radio, documentary, podcast and voice-oriented audio work."
+    },
+    {
+      "id": "writing",
+      "title": "Screenwriting",
+      "label": "Writing",
+      "text": "Screenplays, story concepts, narrative development and creative writing."
+    },
+    {
+      "id": "management",
+      "title": "Media Management",
+      "label": "Leadership",
+      "text": "Creative teams, production planning, workflow and large-scale media operations."
+    }
+  ],
+  "experience": [
+    [
+      "Television & Media Production",
+      "More than 40,000 minutes of television programming, alongside production planning, creative development and media management."
+    ],
+    [
+      "RadioPod",
+      "Founder of an independent audio/media project with more than 1,000 hours of original programming across radio, documentary and podcast formats."
+    ],
+    [
+      "Animation & Training",
+      "Founded two animation units and contributed to the development and training of media production staff."
+    ]
+  ],
+  "roles": [
+    [
+      "Creative Producer & Production Manager",
+      "Creative leadership, production planning, team coordination, editorial development and delivery."
+    ],
+    [
+      "Filmmaker & Screenwriter",
+      "Film and documentary development, screenwriting, storytelling and audiovisual production."
+    ],
+    [
+      "Radio Producer · Narrator · Voice Artist",
+      "Original programming, documentary audio, narration, voice performance and presenter-oriented audio work."
+    ],
+    [
+      "Digital Media",
+      "Development of original content for contemporary digital and omnichannel environments."
+    ]
+  ],
+  "expertise": [
+    [
+      "Media Management",
+      "Creative leadership, production planning, team coordination and editorial development."
+    ],
+    [
+      "Film & Documentary",
+      "Filmmaking, documentary development, storytelling and production."
+    ],
+    [
+      "Screenwriting",
+      "Story concepts, screenplays and narrative development."
+    ],
+    [
+      "Radio & Audio",
+      "Radio production, documentary audio, podcasting and original programming."
+    ],
+    [
+      "Voice & Narration",
+      "Professional narration, voice performance and presenter-oriented audio work."
+    ],
+    [
+      "Digital Media",
+      "Original content development for contemporary digital and omnichannel environments."
+    ]
+  ]
+}
