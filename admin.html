@@ -74,7 +74,7 @@
 <section id="expertise" class="panel"><div class="cardx panel-card"><div class="section-head"><div><h2>Expertise</h2><p>Manage the professional areas displayed on the site.</p></div><button class="btn btn-primary btn-sm" onclick="addPair('expertise')"><i class="bi bi-plus-lg"></i> Add</button></div><div id="expertiseForm"></div></div></section>
 <section id="media" class="panel"><div class="cardx panel-card">
 <div class="section-head"><div><h2>Media Library</h2><p>Upload, preview, organize and connect media to project pages.</p></div><div class="connected-pill"><i class="bi bi-cloud-check me-1"></i> Repository media</div></div>
-<div class="item"><h5 class="mb-3"><i class="bi bi-cloud-arrow-up me-2"></i>Upload New Media</h5><div class="row g-2"><div class="col-lg-5"><input id="file" type="file" class="form-control"></div><div class="col-lg-7"><input id="filePath" class="form-control" placeholder="Repository path, e.g. media/showreel.mp4"></div></div><div class="row g-2 mt-2"><div class="col-md-4"><input id="mediaTitle" class="form-control" placeholder="Title"></div><div class="col-md-4"><select id="mediaType" class="form-select"><option value="image">Image</option><option value="video">Video</option><option value="audio">Audio</option><option value="pdf">PDF</option><option value="other">Other</option></select></div><div class="col-md-4"><input id="mediaProject" class="form-control" placeholder="Project ID (optional)"></div></div><button class="btn btn-primary mt-3" onclick="uploadMedia()"><i class="bi bi-upload me-1"></i> Upload & Add</button><div class="small-note mt-2">Maximum individual upload: 25 MB.</div></div>
+<div class="item"><h5 class="mb-3"><i class="bi bi-cloud-arrow-up me-2"></i>Upload New Media</h5><div class="row g-2"><div class="col-lg-6"><input id="file" type="file" class="form-control"></div><div class="col-lg-6"><input id="mediaTitle" class="form-control" placeholder="Title (optional)"></div></div><div class="row g-2 mt-2"><div class="col-md-6"><select id="mediaType" class="form-select"><option value="image">Image</option><option value="video">Video</option><option value="audio">Audio</option><option value="pdf">PDF</option><option value="other">Other</option></select></div><div class="col-md-6"><select id="mediaProject" class="form-select"><option value="">No project</option></select></div></div><button class="btn btn-primary mt-3" onclick="uploadMedia()"><i class="bi bi-upload me-1"></i> Upload</button><div class="small-note mt-2">The file is automatically stored in <strong>media/</strong>. Maximum individual upload: 25 MB.</div></div>
 <div id="mediaForm"></div>
 </div></section>
 </main>
@@ -206,6 +206,7 @@ function render(){
   $('experienceForm').innerHTML=data.experience.length?data.experience.map((p,i)=>pair('experience',i,p)).join(''):'<div class="empty">No experience entries yet.</div>';
   $('expertiseForm').innerHTML=data.expertise.length?data.expertise.map((p,i)=>pair('expertise',i,p)).join(''):'<div class="empty">No expertise items yet.</div>';
   $('mediaForm').innerHTML=data.media.length?data.media.map((m,i)=>mediaCard(m,i)).join(''):'<div class="empty"><i class="bi bi-images fs-2 d-block mb-2"></i>No media yet.</div>';
+  $('mediaProject').innerHTML='<option value="">No project</option>'+data.projects.map(p=>'<option value="'+esc(p.id)+'">'+esc(p.title||p.id)+'</option>').join('');
 }
 
 function pair(k,i,p){
@@ -263,15 +264,52 @@ async function save(){
 async function uploadMedia(){
   try{
     if(!data)throw new Error('Connect to GitHub first.');
-    const f=$('file').files[0], path=$('filePath').value.trim();
-    if(!f||!path)throw new Error('Choose a file and enter its repository path.');
+    const f=$('file').files[0];
+    if(!f)throw new Error('Choose a file first.');
     if(f.size>25*1024*1024)throw new Error('Keep uploads under 25 MB.');
+
+    collect();
+
+    // The user chooses only the file. The CMS creates the repository path automatically.
+    const safeName=f.name
+      .normalize('NFKD')
+      .replace(/[^a-zA-Z0-9._-]+/g,'-')
+      .replace(/-+/g,'-')
+      .replace(/^-|-$/g,'') || ('file-'+Date.now());
+    const extMatch=safeName.match(/(\\.[^.]+)$/);
+    const base=safeName.replace(/\\.[^.]+$/,'');
+    const ext=extMatch?extMatch[1]:'';
+    let filename=safeName, n=1;
+    const existing=new Set((data.media||[]).map(m=>m.path));
+    while(existing.has('media/'+filename)){
+      filename=base+'-'+n+ext;
+      n++;
+    }
+    const path='media/'+filename;
+
     const b=new Uint8Array(await f.arrayBuffer()); let bin='';
     for(let i=0;i<b.length;i+=32768)bin+=String.fromCharCode(...b.subarray(i,i+32768));
     await api(path,{method:'PUT',body:JSON.stringify({message:'Add portfolio media: '+path,content:btoa(bin),branch})});
-    data.media.push({id:'media-'+Date.now(),title:$('mediaTitle').value.trim()||f.name,type:$('mediaType').value,path,projectId:$('mediaProject').value.trim()});
-    $('file').value='';$('filePath').value='';$('mediaTitle').value='';$('mediaProject').value='';
-    render();updateMetrics();markDirty();$('saveStatus').textContent='Media uploaded. Save & Publish to save its metadata.';
+
+    data.media.push({
+      id:'media-'+Date.now(),
+      title:$('mediaTitle').value.trim()||f.name,
+      type:$('mediaType').value,
+      path,
+      projectId:$('mediaProject').value
+    });
+
+    const j=await api('content.json',{method:'PUT',body:JSON.stringify({
+      message:'Register portfolio media: '+path,
+      content:encodeContent(JSON.stringify(data,null,2)),
+      sha,
+      branch
+    })});
+    sha=j.content.sha;
+
+    $('file').value='';$('mediaTitle').value='';
+    render();updateMetrics();dirty=false;
+    $('saveStatus').innerHTML='<span class="text-success"><i class="bi bi-check-circle me-1"></i>Media uploaded and published.</span>';
   }catch(e){$('saveStatus').innerHTML='<span class="text-danger">'+esc(e.message)+'</span>'}
 }
 
