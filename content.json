@@ -289,8 +289,8 @@
       "formats": "45-minute Weekly Show · 26 Episodes · 1,170 minutes",
       "status": "No sample available",
       "links": [],
-      "mediaPath": "",
-      "mediaType": "",
+      "mediaPath": "media/project-masir-1790365536990-masir.png",
+      "mediaType": "image",
       "mediaId": ""
     },
     {
@@ -508,6 +508,13 @@
       "type": "image",
       "path": "media/project-zyafat-e-noor-1790365505243-zyafat.png",
       "projectId": "zyafat-e-noor"
+    },
+    {
+      "id": "media-1790365544942",
+      "title": "Masir (Path) — Project Image",
+      "type": "image",
+      "path": "media/project-masir-1790365536990-masir.png",
+      "projectId": "masir"
     }
   ],
   "contact": [
