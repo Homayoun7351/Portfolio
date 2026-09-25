@@ -308,7 +308,10 @@
       "role": "Producer · Director · Writer · Host · Video Editor",
       "formats": "45-minute Weekly Show · 26 Episodes · 1,170 minutes",
       "status": "No sample available",
-      "links": []
+      "links": [],
+      "mediaPath": "media/project-masir-1790362172926-masir.jpg",
+      "mediaType": "image",
+      "mediaId": ""
     },
     {
       "id": "javaneha",
@@ -498,6 +501,13 @@
       "type": "image",
       "path": "media/project-zyafat-e-noor-1790362138112-zyafate-noor.jpg",
       "projectId": "zyafat-e-noor"
+    },
+    {
+      "id": "media-1790362180523",
+      "title": "Masir (Path) — Project Image",
+      "type": "image",
+      "path": "media/project-masir-1790362172926-masir.jpg",
+      "projectId": "masir"
     }
   ],
   "contact": [
