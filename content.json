@@ -178,7 +178,10 @@
       "role": "Producer · Director · Editor",
       "formats": "15-minute Industrial Documentary",
       "status": "No sample available",
-      "links": []
+      "links": [],
+      "mediaPath": "media/project-abadan-refinery-1790361940283-refinery.jpg",
+      "mediaType": "image",
+      "mediaId": ""
     },
     {
       "id": "da-mother",
@@ -418,6 +421,13 @@
       "type": "image",
       "path": "media/project-giti-to-ra-pasandid-1790361911597-giti-to-ra-pasandid.jpg",
       "projectId": "giti-to-ra-pasandid"
+    },
+    {
+      "id": "media-1790361944902",
+      "title": "ABADAN Refinery — Project Image",
+      "type": "image",
+      "path": "media/project-abadan-refinery-1790361940283-refinery.jpg",
+      "projectId": "abadan-refinery"
     }
   ],
   "contact": [
