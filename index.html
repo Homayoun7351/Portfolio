@@ -11,6 +11,17 @@
 <link href="https://raw.githubusercontent.com/themewagon/iPortfolio/main/assets/css/main.css" rel="stylesheet">
 <style>
 :root{--accent:#149ddd}
+@media(min-width:1200px){
+  #header{position:fixed!important;left:0;top:0;bottom:0;width:300px!important;z-index:997;overflow-y:auto}
+  .main{margin-left:300px!important}
+  #footer{margin-left:300px!important}
+}
+@media(max-width:1199px){
+  #header{position:fixed!important;left:-300px;top:0;bottom:0;width:300px!important;z-index:9997;transition:left .3s}
+  #header.header-show{left:0}
+  .main,#footer{margin-left:0!important}
+}
+
 .hero{position:relative;min-height:100vh;height:100vh;display:flex;align-items:flex-end;overflow:hidden;background:#080b12}
 .hero:before{content:"";position:absolute;inset:0;background:url('media/Gemini_Generated_Image_c9kuxzc9kuxzc9ku.jpg') center center/cover no-repeat;z-index:0}
 .hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.08) 20%,rgba(0,0,0,.78) 100%);z-index:1}
