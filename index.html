@@ -63,7 +63,12 @@
 .work:nth-child(3n){background:linear-gradient(135deg,#141414,#363636)}
 .work h4{font-size:1.45rem}
 .stat{padding:28px;border-radius:12px;background:#fff;box-shadow:0 8px 28px #00000012;height:100%}
-.stat strong{display:block;font-size:2rem;color:#149ddd}
+.stat strong{display:block;font-size:2rem;color:#149ddd}\n.about-stats{display:flex;flex-direction:column;gap:0}
+.about-stats .stat{display:block;position:relative;padding:26px 28px!important}
+.about-stats .stat strong{display:block;margin-bottom:8px}
+.about-stats .stat span{display:block;line-height:1.6}
+.about .content{padding-left:28px}
+@media(max-width:991px){.about .content{padding-left:0}}
 .note{border-left:3px solid #149ddd;padding-left:18px}
 .navmenu a{
   position:relative;display:flex!important;align-items:center;
@@ -132,11 +137,13 @@ html{scroll-behavior:smooth}
 
 <section id="about" class="about section">
 <div class="container section-title"><h2>About</h2><p id="aboutIntro"></p></div>
-<div class="container"><div class="row gy-4">
+<div class="container"><div class="row gy-5 align-items-start">
 <div class="col-lg-4">
-<div class="stat mb-3"><strong>25+</strong><span>Years of professional media experience</span></div>
-<div class="stat mb-3"><strong>40,000+</strong><span>Minutes of television programming</span></div>
+<div class="about-stats">
+<div class="stat mb-4"><strong>25+</strong><span>Years of professional media experience</span></div>
+<div class="stat mb-4"><strong>40,000+</strong><span>Minutes of television programming</span></div>
 <div class="stat"><strong>1,000+</strong><span>Hours of original RadioPod programming</span></div>
+</div>
 </div>
 <div class="col-lg-8 content">
 <h2 id="aboutHeading"></h2><p id="aboutText" class="fst-italic py-3"></p>
