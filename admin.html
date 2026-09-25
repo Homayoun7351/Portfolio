@@ -342,13 +342,31 @@ async function uploadProjectImage(i){
 async function removeProjectImage(i){
   try{
     if(!data)throw new Error('Connect to GitHub first.');
-    if(!confirm('Remove this image from the project? The file will remain in Media Library.'))return;
-    collect(); const p=data.projects[i], oldPath=p.mediaPath;
+    collect();
+    const p=data.projects[i], oldPath=p.mediaPath;
+    if(!oldPath)throw new Error('This project has no image.');
+    if(!confirm('Delete this project image from GitHub? The image file will be permanently removed from the repository.'))return;
+
+    const file=await api(oldPath);
+    await api(oldPath,{method:'DELETE',body:JSON.stringify({
+      message:'Delete project image: '+p.title,
+      sha:file.sha,
+      branch
+    })});
+
     p.mediaPath='';p.mediaType='';p.mediaId='';
-    const m=data.media.find(x=>x.path===oldPath); if(m)m.projectId='';
-    const j=await api('content.json',{method:'PUT',body:JSON.stringify({message:'Remove project image: '+p.title,content:encodeContent(JSON.stringify(data,null,2)),sha,branch})});
-    sha=j.content.sha;dirty=false;render();updateMetrics();
-    $('saveStatus').innerHTML='<span class="text-success"><i class="bi bi-check-circle me-1"></i>Project image removed.</span>';
+    data.media=(data.media||[]).filter(m=>m.path!==oldPath);
+
+    const j=await api('content.json',{method:'PUT',body:JSON.stringify({
+      message:'Remove deleted project image from media index: '+p.title,
+      content:encodeContent(JSON.stringify(data,null,2)),
+      sha,
+      branch
+    })});
+    sha=j.content.sha;
+    dirty=false;
+    render();updateMetrics();
+    $('saveStatus').innerHTML='<span class="text-success"><i class="bi bi-check-circle me-1"></i>Image deleted from GitHub and removed from the project.</span>';
   }catch(e){$('saveStatus').innerHTML='<span class="text-danger">'+esc(e.message)+'</span>'}
 }
 function previewProjectMedia(i){
