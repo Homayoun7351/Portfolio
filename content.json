@@ -213,7 +213,10 @@
       "role": "Director · Writer · Host",
       "formats": "60-minute Weekly Live Talk Show · 13 Episodes · 780 minutes",
       "status": "No sample available",
-      "links": []
+      "links": [],
+      "mediaPath": "media/project-tar-o-poud-1790361996705-taropood.jpg",
+      "mediaType": "image",
+      "mediaId": ""
     },
     {
       "id": "sayeboone-asheghi",
@@ -438,6 +441,13 @@
       "type": "image",
       "path": "media/project-da-mother-1790361968139-da.jpg",
       "projectId": "da-mother"
+    },
+    {
+      "id": "media-1790362001913",
+      "title": "TAR O POUD (Warp and Woof) — Project Image",
+      "type": "image",
+      "path": "media/project-tar-o-poud-1790361996705-taropood.jpg",
+      "projectId": "tar-o-poud"
     }
   ],
   "contact": [
