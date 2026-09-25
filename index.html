@@ -280,6 +280,11 @@ fetch('content.json').then(r=>r.json()).then(d=>{
  setActiveNav();
 }).catch(e=>console.error(e));
 document.querySelector('.header-toggle')?.addEventListener('click',()=>document.querySelector('#header').classList.toggle('header-show'));
+
+// Start the iPortfolio-style counters when the Stats section enters the viewport.
+window.addEventListener('load',()=>{
+  if(window.PureCounter){ new PureCounter(); }
+});
 </script>
 </body>
 </html>
