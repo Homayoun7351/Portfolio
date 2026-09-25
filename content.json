@@ -69,6 +69,26 @@
       "mediaId": ""
     },
     {
+      "id": "baba-darya",
+      "title": "BABA DARYA",
+      "label": "Feature Film",
+      "year": "2021–2022",
+      "location": "Tehran",
+      "text": "An ocean scientist drowns and miraculously survives. He firmly believes that Baba Darya — a mythological monster from Persian and Arab folklore who lures sailors to their deaths — saved him.",
+      "role": "Screenwriter",
+      "formats": "120-minute Feature Film · Crime · Horror · Fantasy",
+      "status": "Screenplay",
+      "links": [
+        [
+          "BABA DARYA — Screenplay",
+          "https://www.dropbox.com/scl/fi/klol96hebcu1pdouzet7a/BABA-DARYA-Full.docx?rlkey=miwzk23akw4j7fdttaagwsbbv&dl=0"
+        ]
+      ],
+      "mediaPath": "media/project-baba-darya-1790361794795-baba.png",
+      "mediaType": "image",
+      "mediaId": ""
+    },
+    {
       "id": "fifth-council",
       "title": "The Fifth Council",
       "label": "Television",
@@ -395,7 +415,7 @@
       "title": "BABA DARYA — Project Image",
       "type": "image",
       "path": "media/project-baba-darya-1790361794795-baba.png",
-      "projectId": ""
+      "projectId": "baba-darya"
     },
     {
       "id": "media-1790362180523",
