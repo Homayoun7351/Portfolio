@@ -162,16 +162,22 @@
   ],
   "contact": [
     {
-      "title": "Professional Inquiries",
-      "value": "Film, television, radio, creative production, media management and voice work.",
-      "icon": "bi-briefcase",
+      "title": "Email",
+      "value": "sheikhi.h@gmail.com",
+      "icon": "bi-gmail",
+      "link": "sheikhi.h@gmail.com"
+    },
+    {
+      "title": "Phone",
+      "value": "+98 920 500 1285",
+      "icon": "bi-phone",
       "link": ""
     },
     {
-      "title": "Portfolio Repository",
-      "value": "github.com/Homayoun7351/Portfolio",
-      "icon": "bi-github",
-      "link": "https://github.com/Homayoun7351/Portfolio"
+      "title": "Address",
+      "value": "Tehran  Iran",
+      "icon": "bi-location",
+      "link": ""
     }
   ]
 }
