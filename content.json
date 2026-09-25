@@ -278,7 +278,10 @@
       "role": "TV Director · Executive Manager",
       "formats": "120-minute Fortnightly Sports Broadcast · 52 Episodes · 6,240 minutes",
       "status": "No sample available",
-      "links": []
+      "links": [],
+      "mediaPath": "media/project-soccer-match-1790362102085-football.jpg",
+      "mediaType": "image",
+      "mediaId": ""
     },
     {
       "id": "zyafat-e-noor",
@@ -478,6 +481,13 @@
       "type": "image",
       "path": "media/project-kankash-1790362081653-.jpg",
       "projectId": "kankash"
+    },
+    {
+      "id": "media-1790362106518",
+      "title": "Soccer Match — Project Image",
+      "type": "image",
+      "path": "media/project-soccer-match-1790362102085-football.jpg",
+      "projectId": "soccer-match"
     }
   ],
   "contact": [
