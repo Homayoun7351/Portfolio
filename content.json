@@ -124,8 +124,8 @@
           "https://www.dropbox.com/scl/fi/l8ufdt3xb50ydhoe8cebf/Homayoun-sheikhi-TERRITORY.pdf?rlkey=x1jqs9ryb7s9gaya4yttaoyni&dl=0"
         ]
       ],
-      "mediaPath": "media/project-ab-o-khak-1790361887683-abo-khak.png",
-      "mediaType": "image",
+      "mediaPath": "",
+      "mediaType": "",
       "mediaId": ""
     },
     {
@@ -389,13 +389,6 @@
       "type": "image",
       "path": "media/Gemini_Generated_Image_c9kuxzc9kuxzc9ku.jpg",
       "projectId": ""
-    },
-    {
-      "id": "media-1790361889340",
-      "title": "Ab o Khak (Territory / Homeland) — Project Image",
-      "type": "image",
-      "path": "media/project-ab-o-khak-1790361887683-abo-khak.png",
-      "projectId": "ab-o-khak"
     },
     {
       "id": "media-1790361944902",
