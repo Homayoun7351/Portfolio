@@ -104,8 +104,8 @@
           "https://www.dropbox.com/scl/fi/7lnm5rdbc0av111j5sty9/HOPE-DEAD-END-1080.MP4?rlkey=kwz1u40a957574v4ggo22n0lh&dl=0"
         ]
       ],
-      "mediaPath": "media/project-hope-dead-end-1790361863025-bonbaste-omid.jpg",
-      "mediaType": "image",
+      "mediaPath": "",
+      "mediaType": "",
       "mediaId": ""
     },
     {
@@ -438,13 +438,6 @@
       "type": "image",
       "path": "media/project-giti-to-ra-pasandid-1790361911597-giti-to-ra-pasandid.jpg",
       "projectId": "giti-to-ra-pasandid"
-    },
-    {
-      "id": "media-1790361864842",
-      "title": "Hope Dead End — Project Image",
-      "type": "image",
-      "path": "media/project-hope-dead-end-1790361863025-bonbaste-omid.jpg",
-      "projectId": "hope-dead-end"
     },
     {
       "id": "media-1790362246152",
