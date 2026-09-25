@@ -124,8 +124,8 @@
           "https://www.dropbox.com/scl/fi/l8ufdt3xb50ydhoe8cebf/Homayoun-sheikhi-TERRITORY.pdf?rlkey=x1jqs9ryb7s9gaya4yttaoyni&dl=0"
         ]
       ],
-      "mediaPath": "",
-      "mediaType": "",
+      "mediaPath": "media/project-ab-o-khak-1790364992622-abo.png",
+      "mediaType": "image",
       "mediaId": ""
     },
     {
@@ -501,6 +501,13 @@
       "type": "image",
       "path": "media/project-hope-dead-end-1790364827435-bonbas.png",
       "projectId": "hope-dead-end"
+    },
+    {
+      "id": "media-1790364995257",
+      "title": "Ab o Khak (Territory / Homeland) — Project Image",
+      "type": "image",
+      "path": "media/project-ab-o-khak-1790364992622-abo.png",
+      "projectId": "ab-o-khak"
     }
   ],
   "contact": [
