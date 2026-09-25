@@ -259,8 +259,8 @@
       "formats": "120-minute Fortnightly Sports Broadcast · 52 Episodes · 6,240 minutes",
       "status": "No sample available",
       "links": [],
-      "mediaPath": "",
-      "mediaType": "",
+      "mediaPath": "media/project-soccer-match-1790365471966-footbal.png",
+      "mediaType": "image",
       "mediaId": ""
     },
     {
@@ -508,6 +508,13 @@
       "type": "image",
       "path": "media/project-kankash-1790365431392-kankash.png",
       "projectId": "kankash"
+    },
+    {
+      "id": "media-1790365479748",
+      "title": "Soccer Match — Project Image",
+      "type": "image",
+      "path": "media/project-soccer-match-1790365471966-footbal.png",
+      "projectId": "soccer-match"
     }
   ],
   "contact": [
