@@ -176,9 +176,16 @@ const navLinks=[...document.querySelectorAll('#navmenu a[href^="#"]')];
 const sections=navLinks.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
 
 function setActiveNav(){
- const marker=window.scrollY+window.innerHeight*0.38;
+ const marker=window.scrollY+window.innerHeight*0.45;
  let current=sections[0];
- sections.forEach(sec=>{if(sec.offsetTop<=marker)current=sec});
+ let best=-Infinity;
+ sections.forEach(sec=>{
+   const top=sec.getBoundingClientRect().top+window.scrollY;
+   if(top<=marker && top>best){best=top;current=sec}
+ });
+ if(window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-10){
+   current=sections[sections.length-1];
+ }
  navLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+current.id));
 }
 
