@@ -194,8 +194,8 @@
       "formats": "60-minute Weekly Live Talk Show · 13 Episodes · 780 minutes",
       "status": "No sample available",
       "links": [],
-      "mediaPath": "",
-      "mediaType": "",
+      "mediaPath": "media/project-tar-o-poud-1790365314640-taro-pood.png",
+      "mediaType": "image",
       "mediaId": ""
     },
     {
@@ -508,6 +508,13 @@
       "type": "image",
       "path": "media/project-da-mother-1790365284453-da.png",
       "projectId": "da-mother"
+    },
+    {
+      "id": "media-1790365323059",
+      "title": "TAR O POUD (Warp and Woof) — Project Image",
+      "type": "image",
+      "path": "media/project-tar-o-poud-1790365314640-taro-pood.png",
+      "projectId": "tar-o-poud"
     }
   ],
   "contact": [
