@@ -96,10 +96,14 @@ html{scroll-behavior:smooth}
   .navmenu a.active{background:rgba(20,157,221,.10)}
   .navmenu a.active::before{display:none}
 }
+/* iPortfolio-style animated statistics */
+.stats .stats-item{padding:30px;width:100%}
+.stats .stats-item i{display:block;color:#149ddd;float:left;font-size:44px;line-height:0}
+.stats .stats-item .purecounter{color:#272829;font-size:48px;display:block;font-weight:700;line-height:40px;margin-left:60px}
+.stats .stats-item p{color:#6b7280;font-size:15px;margin-left:60px;margin-top:10px}
+.stats .stats-item p strong{font-weight:700;color:#272829}
 </style>
-#stats-section .stats-item>span.purecounter{display:block}
-#stats-section .stats-item>i{font-size:44px;line-height:1;color:#149ddd;margin-bottom:12px;display:block}
-#stats-section .stats-item>p{margin:0}
+<script src="https://cdn.jsdelivr.net/npm/purecounterjs@1.5.0/dist/purecounter_vanilla.js"></script>
 </head>
 <body class="index-page">
 <header id="header" class="header dark-background d-flex flex-column">
@@ -134,7 +138,7 @@ html{scroll-behavior:smooth}
 <a href="#work" class="btn btn-primary px-4 py-3">Explore Selected Work</a>
 <a href="cv.html" class="btn btn-outline-light px-4 py-3">View Professional CV</a>
 </div>
-<div id="stats" class="hero-meta"></div>
+
 </div>
 </section>
 
@@ -156,7 +160,7 @@ html{scroll-behavior:smooth}
 </div></div></div>
 </section>
 
-<section id="stats-section" class="stats section">
+<section id="stats" class="stats section">
 <div class="container">
 <div class="row gy-4">
 <div class="col-lg-4 col-md-6">
@@ -257,7 +261,7 @@ fetch('content.json').then(r=>r.json()).then(d=>{
  heroName.innerHTML=escHtml(d.site.name).replace(/\s+/,'<br>');
  siteRole.textContent=d.site.role;
  heroText.textContent=d.site.heroText;
- stats.innerHTML=d.site.stats.map(x=>'<span>'+escHtml(x[0])+' '+escHtml(x[1])+'</span>').join('');
+ 
  aboutIntro.textContent=d.about.intro;
  aboutHeading.textContent=d.about.heading;
  aboutText.textContent=d.about.text;
