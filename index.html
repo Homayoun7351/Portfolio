@@ -129,7 +129,7 @@ html{scroll-behavior:smooth}
 </header>
 
 <main class="main">
-<section id="hero" class="hero section dark-background">
+<section id="hero" class="hero section dark-background" data-aos="fade-up">
 <div class="container">
 <span id="siteRole" class="eyebrow"></span>
 <h2 id="heroName"></h2>
@@ -142,7 +142,7 @@ html{scroll-behavior:smooth}
 </div>
 </section>
 
-<section id="about" class="about section">
+<section id="about" class="about section" data-aos="fade-up">
 <div class="container section-title"><h2>About</h2><p id="aboutIntro"></p></div>
 <div class="container"><div class="row gy-4 justify-content-center">
 <div class="col-lg-12 content">
@@ -160,7 +160,7 @@ html{scroll-behavior:smooth}
 </div></div></div>
 </section>
 
-<section id="stats" class="stats section">
+<section id="stats" class="stats section" data-aos="fade-up">
 
 <div class="container" data-aos="fade-up" data-aos-delay="100">
 
@@ -195,17 +195,17 @@ html{scroll-behavior:smooth}
 
 </section>
 
-<section id="approach" class="services section light-background">
+<section id="approach" class="services section light-background" data-aos="fade-up">
 <div class="container section-title"><h2>What I Bring</h2><p>A combination of creative direction, production discipline and a strong understanding of voice, narrative and audience.</p></div>
 <div class="container"><div id="bring" class="row gy-4"></div></div>
 </section>
 
-<section id="work" class="portfolio section">
+<section id="work" class="portfolio section" data-aos="fade-up">
 <div class="container section-title"><h2>Selected Work</h2><p>A curated selection of film, television, radio, audio, writing and media management.</p></div>
 <div class="container"><div id="projects" class="row gy-4"></div></div>
 </section>
 
-<section id="resume" class="resume section light-background">
+<section id="resume" class="resume section light-background" data-aos="fade-up">
 <div class="container section-title"><h2>Professional Experience</h2><p>Selected career highlights and professional roles.</p></div>
 <div class="container"><div class="row">
 <div class="col-lg-6"><h3>Selected Achievements</h3><div id="experience"></div></div>
@@ -213,12 +213,12 @@ html{scroll-behavior:smooth}
 </div></div>
 </section>
 
-<section id="skills" class="skills section">
+<section id="skills" class="skills section" data-aos="fade-up">
 <div class="container section-title"><h2>Expertise</h2><p>The professional areas at the center of this portfolio.</p></div>
 <div class="container"><div id="expertise" class="row gy-4"></div></div>
 </section>
 
-<section id="contact" class="contact section light-background">
+<section id="contact" class="contact section light-background" data-aos="fade-up">
 <div class="container section-title"><h2>Contact</h2><p>Professional contact details and selected project links can be added here when finalized.</p></div>
 <div class="container"><div class="info-wrap">
 <div class="info-item d-flex"><i class="bi bi-briefcase flex-shrink-0"></i><div><h3>Professional Inquiries</h3><p>Film, television, radio, creative production, media management and voice work.</p></div></div>
@@ -290,6 +290,10 @@ document.querySelector('.header-toggle')?.addEventListener('click',()=>document.
 
 // Original iPortfolio counter initialization.
 if(window.PureCounter){ new PureCounter(); }
+</script>
+<script src="assets/vendor/aos/aos.js"></script>
+<script>
+if(window.AOS){ AOS.init({duration:600,easing:'ease-in-out',once:true}); }
 </script>
 </body>
 </html>
