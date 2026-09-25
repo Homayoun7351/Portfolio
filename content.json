@@ -84,8 +84,8 @@
           "https://www.dropbox.com/scl/fi/klol96hebcu1pdouzet7a/BABA-DARYA-Full.docx?rlkey=miwzk23akw4j7fdttaagwsbbv&dl=0"
         ]
       ],
-      "mediaPath": "media/project-baba-darya-1790361794795-baba.png",
-      "mediaType": "image",
+      "mediaPath": "",
+      "mediaType": "",
       "mediaId": ""
     },
     {
@@ -411,53 +411,11 @@
       "projectId": ""
     },
     {
-      "id": "media-1790361796186",
-      "title": "BABA DARYA — Project Image",
-      "type": "image",
-      "path": "media/project-baba-darya-1790361794795-baba.png",
-      "projectId": "baba-darya"
-    },
-    {
-      "id": "media-1790362180523",
-      "title": "Masir (Path) — Project Image",
-      "type": "image",
-      "path": "media/project-masir-1790362172926-masir.jpg",
-      "projectId": ""
-    },
-    {
-      "id": "media-1790364762503",
-      "title": "RadioPod Podcast — Project Image",
-      "type": "image",
-      "path": "media/project-radiopod-1790364757285-radio.png",
-      "projectId": "radiopod"
-    },
-    {
-      "id": "media-1790364804169",
-      "title": "The Fifth Council — Project Image",
-      "type": "image",
-      "path": "media/project-fifth-council-1790364797527-anjoman.png",
-      "projectId": "fifth-council"
-    },
-    {
-      "id": "media-1790364833268",
-      "title": "Hope Dead End — Project Image",
-      "type": "image",
-      "path": "media/project-hope-dead-end-1790364827435-bonbas.png",
-      "projectId": "hope-dead-end"
-    },
-    {
       "id": "media-1790364995257",
       "title": "Ab o Khak (Territory / Homeland) — Project Image",
       "type": "image",
       "path": "media/project-ab-o-khak-1790364992622-abo.png",
       "projectId": "ab-o-khak"
-    },
-    {
-      "id": "media-1790365217467",
-      "title": "Giti to ra pasandid (The World Likes You) — Project Image",
-      "type": "image",
-      "path": "media/project-giti-to-ra-pasandid-1790365209786-giti.png",
-      "projectId": "giti-to-ra-pasandid"
     },
     {
       "id": "media-1790365256433",
@@ -467,25 +425,11 @@
       "projectId": "abadan-refinery"
     },
     {
-      "id": "media-1790365292030",
-      "title": "DA (Mother) — Project Image",
+      "id": "media-1790365683529",
+      "title": "Founder of Two Animation Units — Project Image",
       "type": "image",
-      "path": "media/project-da-mother-1790365284453-da.png",
-      "projectId": "da-mother"
-    },
-    {
-      "id": "media-1790365323059",
-      "title": "TAR O POUD (Warp and Woof) — Project Image",
-      "type": "image",
-      "path": "media/project-tar-o-poud-1790365314640-taro-pood.png",
-      "projectId": "tar-o-poud"
-    },
-    {
-      "id": "media-1790365356636",
-      "title": "Sayeboone Asheghi (Love Tent) — Project Image",
-      "type": "image",
-      "path": "media/project-sayeboone-asheghi-1790365349512-saye.png",
-      "projectId": "sayeboone-asheghi"
+      "path": "media/project-animation-units-1790365676847-animation.png",
+      "projectId": "animation-units"
     },
     {
       "id": "media-1790365393511",
@@ -495,32 +439,32 @@
       "projectId": "breaking-point"
     },
     {
-      "id": "media-1790365439406",
-      "title": "Kankash (Probing) — Project Image",
+      "id": "media-1790365292030",
+      "title": "DA (Mother) — Project Image",
       "type": "image",
-      "path": "media/project-kankash-1790365431392-kankash.png",
-      "projectId": "kankash"
+      "path": "media/project-da-mother-1790365284453-da.png",
+      "projectId": "da-mother"
     },
     {
-      "id": "media-1790365479748",
-      "title": "Soccer Match — Project Image",
+      "id": "media-1790364804169",
+      "title": "The Fifth Council — Project Image",
       "type": "image",
-      "path": "media/project-soccer-match-1790365471966-footbal.png",
-      "projectId": "soccer-match"
+      "path": "media/project-fifth-council-1790364797527-anjoman.png",
+      "projectId": "fifth-council"
     },
     {
-      "id": "media-1790365512748",
-      "title": "Zyafat E Noor (Feast of Light) — Project Image",
+      "id": "media-1790365217467",
+      "title": "Giti to ra pasandid (The World Likes You) — Project Image",
       "type": "image",
-      "path": "media/project-zyafat-e-noor-1790365505243-zyafat.png",
-      "projectId": "zyafat-e-noor"
+      "path": "media/project-giti-to-ra-pasandid-1790365209786-giti.png",
+      "projectId": "giti-to-ra-pasandid"
     },
     {
-      "id": "media-1790365544942",
-      "title": "Masir (Path) — Project Image",
+      "id": "media-1790364833268",
+      "title": "Hope Dead End — Project Image",
       "type": "image",
-      "path": "media/project-masir-1790365536990-masir.png",
-      "projectId": "masir"
+      "path": "media/project-hope-dead-end-1790364827435-bonbas.png",
+      "projectId": "hope-dead-end"
     },
     {
       "id": "media-1790365618742",
@@ -530,11 +474,60 @@
       "projectId": "javaneha"
     },
     {
-      "id": "media-1790365683529",
-      "title": "Founder of Two Animation Units — Project Image",
+      "id": "media-1790365439406",
+      "title": "Kankash (Probing) — Project Image",
       "type": "image",
-      "path": "media/project-animation-units-1790365676847-animation.png",
-      "projectId": "animation-units"
+      "path": "media/project-kankash-1790365431392-kankash.png",
+      "projectId": "kankash"
+    },
+    {
+      "id": "media-1790362180523",
+      "title": "Masir (Path) — Project Image",
+      "type": "image",
+      "path": "media/project-masir-1790362172926-masir.jpg",
+      "projectId": ""
+    },
+    {
+      "id": "media-1790365544942",
+      "title": "Masir (Path) — Project Image",
+      "type": "image",
+      "path": "media/project-masir-1790365536990-masir.png",
+      "projectId": "masir"
+    },
+    {
+      "id": "media-1790364762503",
+      "title": "RadioPod Podcast — Project Image",
+      "type": "image",
+      "path": "media/project-radiopod-1790364757285-radio.png",
+      "projectId": "radiopod"
+    },
+    {
+      "id": "media-1790365356636",
+      "title": "Sayeboone Asheghi (Love Tent) — Project Image",
+      "type": "image",
+      "path": "media/project-sayeboone-asheghi-1790365349512-saye.png",
+      "projectId": "sayeboone-asheghi"
+    },
+    {
+      "id": "media-1790365479748",
+      "title": "Soccer Match — Project Image",
+      "type": "image",
+      "path": "media/project-soccer-match-1790365471966-footbal.png",
+      "projectId": "soccer-match"
+    },
+    {
+      "id": "media-1790365323059",
+      "title": "TAR O POUD (Warp and Woof) — Project Image",
+      "type": "image",
+      "path": "media/project-tar-o-poud-1790365314640-taro-pood.png",
+      "projectId": "tar-o-poud"
+    },
+    {
+      "id": "media-1790365512748",
+      "title": "Zyafat E Noor (Feast of Light) — Project Image",
+      "type": "image",
+      "path": "media/project-zyafat-e-noor-1790365505243-zyafat.png",
+      "projectId": "zyafat-e-noor"
     }
   ],
   "contact": [
