@@ -64,8 +64,8 @@
           "https://t.me/Radio_pod\nRadioPod Kids — Telegram | https://t.me/radiopodkids\nRadioPod — Sample — Telegram | https://t.me/nemoonekar_radiopod\nRadioPod — YouTube | https://www.youtube.com/@radio-pod\nRadioPod — X | https://x.com/radiopoddd"
         ]
       ],
-      "mediaPath": "",
-      "mediaType": "",
+      "mediaPath": "media/project-radiopod-1790364757285-radio.png",
+      "mediaType": "image",
       "mediaId": ""
     },
     {
@@ -480,6 +480,13 @@
       "type": "image",
       "path": "media/project-zyafat-e-noor-1790362138112-zyafate-noor.jpg",
       "projectId": "zyafat-e-noor"
+    },
+    {
+      "id": "media-1790364762503",
+      "title": "RadioPod Podcast — Project Image",
+      "type": "image",
+      "path": "media/project-radiopod-1790364757285-radio.png",
+      "projectId": "radiopod"
     }
   ],
   "contact": [
