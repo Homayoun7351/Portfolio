@@ -144,8 +144,8 @@
           "https://www.dropbox.com/scl/fi/lhr35ui1c9ntmko4xzh0a/92.mp4?rlkey=kwz1u40a957574v4ggo22n0lh&dl=0"
         ]
       ],
-      "mediaPath": "media/project-giti-to-ra-pasandid-1790361911597-giti-to-ra-pasandid.jpg",
-      "mediaType": "image",
+      "mediaPath": "",
+      "mediaType": "",
       "mediaId": ""
     },
     {
@@ -424,13 +424,6 @@
       "type": "image",
       "path": "media/project-da-mother-1790361968139-da.jpg",
       "projectId": "da-mother"
-    },
-    {
-      "id": "media-1790361916295",
-      "title": "Giti to ra pasandid (The World Likes You) — Project Image",
-      "type": "image",
-      "path": "media/project-giti-to-ra-pasandid-1790361911597-giti-to-ra-pasandid.jpg",
-      "projectId": "giti-to-ra-pasandid"
     },
     {
       "id": "media-1790362246152",
