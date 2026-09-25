@@ -83,40 +83,221 @@
 <div class="statusbar"><span id="saveStatus" class="small-note">Connect to GitHub to start editing.</span><button id="saveBtn" class="btn btn-success btn-sm px-4" onclick="save()"><i class="bi bi-cloud-check me-1"></i> Save & Publish</button></div><div class="modal fade" id="previewModal" tabindex="-1"><div class="modal-dialog modal-xl modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h5 id="previewTitle" class="modal-title">Media Preview</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body text-center" id="previewBody"></div></div></div></div><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
-const owner='Homayoun7351',repo='Portfolio',branch='main';let data=null,sha=null,dirty=false;
+const owner='Homayoun7351', repo='Portfolio', branch='main';
+let data=null, sha=null, dirty=false;
+
+const $=id=>document.getElementById(id);
+const token=()=>($('token').value||'').trim();
 const esc=s=>String(s??'').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-const token=()=>document.getElementById('token').value.trim();
-function status(t,ok=false){document.getElementById('status').innerHTML='<span class="'+(ok?'text-success':'text-danger')+'">'+esc(t)+'</span>'} function markDirty(){dirty=true;document.getElementById('saveStatus').innerHTML='<span class="dirty"><i class="bi bi-exclamation-circle me-1"></i>Unsaved changes</span>'}
-function headers(){if(!token())throw Error('Enter your GitHub token first.');return {Authorization:'Bearer '+token(),Accept:'application/vnd.github+json','Content-Type':'application/json'}}
-async function github(path,opt={}){let r;try{r=await fetch('https://api.github.com'+path,{...opt,headers:{...headers(),...(opt.headers||{})}})}catch(e){throw Error('Cannot reach GitHub. Check your internet/VPN or browser connection, then try again.')}let j={};try{j=await r.json()}catch{}if(!r.ok){if(r.status===401)throw Error('GitHub rejected this token (401). Create a new token and make sure it is copied completely.');if(r.status===403)throw Error('GitHub denied access (403). Check token permissions and repository access.');if(r.status===404)throw Error('Repository or content was not found. Make sure the token has access to Homayoun7351/Portfolio.');throw Error((j.message||'GitHub request failed')+' (HTTP '+r.status+')')}return j}
-async function api(path,opt={}){return github('/repos/'+owner+'/'+repo+'/contents/'+path,opt)}
-async function verifyOwner(){const u=await github('/user');if(!u.login)throw Error('GitHub did not return a valid user for this token.');if(u.login!==owner)throw Error('This token belongs to GitHub user "'+u.login+'". The Portfolio owner is "'+owner+'".');const r=await github('/repos/'+owner+'/'+repo);if(r.private===false&&r.permissions&&r.permissions.push===false)throw Error('This token can read the repository but cannot write to it. Give the token Contents: Read and write access.');if(r.permissions&&!r.permissions.push)throw Error('Write permission is missing. In GitHub token settings, grant access to Homayoun7351/Portfolio and set Contents to Read and write.');await github('/repos/'+owner+'/'+repo+'/contents/content.json');return u}
-async function loadData(){const btn=document.getElementById('connectBtn');btn.disabled=true;status('Verifying GitHub identity and repository permissions...');try{await verifyOwner();const j=await api('content.json');data=JSON.parse(decodeURIComponent(escape(atob(j.content.replace(/\n/g,'')))));sha=j.sha;dirty=false;document.getElementById('connection').classList.add('hidden');document.getElementById('logoutBtn').classList.remove('hidden');render();updateMetrics();showPanel('dashboard');document.getElementById('saveStatus').innerHTML='<span class="text-success">Connected as '+owner+'. Changes are published to main when you save.</span>'}catch(e){status(e.message)}finally{btn.disabled=false}}
-function logout(){document.getElementById('token').value='';data=null;sha=null;document.getElementById('connection').classList.remove('hidden');document.getElementById('logoutBtn').classList.add('hidden');document.getElementById('saveStatus').textContent='Logged out.';showPanel('dashboard')}
-function showPanel(id){document.querySelectorAll('.panel').forEach(x=>x.classList.toggle('active',x.id===id));document.querySelectorAll('.side-link[data-panel]').forEach(x=>x.classList.toggle('active',x.dataset.panel===id));const names={dashboard:['Dashboard','Portfolio overview and quick actions.'],basic:['Site & About','Identity and introductory content.'],projects:['Projects','Selected work and project pages.'],experience:['Professional Experience','Career highlights and roles.'],expertise:['Expertise','Professional areas and capabilities.'],media:['Media Library','Images, video, audio and documents.']};document.getElementById('pageTitle').textContent=names[id][0];document.getElementById('pageSub').textContent=names[id][1];window.scrollTo({top:0,behavior:'smooth'})}
-document.querySelectorAll('.side-link[data-panel]').forEach(x=>x.addEventListener('click',()=>showPanel(x.dataset.panel)));
-function input(label,path,value,area=false){return '<div class="mb-3"><label class="form-label">'+label+'</label>'+(area?'<textarea class="form-control" rows="3" data-path="'+path+'">'+esc(value)+'</textarea>':'<input class="form-control" value="'+esc(value)+'" data-path="'+path+'">')+'</div>'}
-function render(){
- data.media=data.media||[];
- document.getElementById('basicForm').innerHTML='<div class="row"><div class="col-lg-6">'+input('Name','site.name',data.site.name)+input('Role','site.role',data.site.role)+'</div><div class="col-lg-6">'+input('Hero text','site.heroText',data.site.heroText,true)+'</div></div><hr class="my-4"><h5 class="mb-3">About Section</h5>'+input('About intro','about.intro',data.about.intro,true)+input('About heading','about.heading',data.about.heading)+input('About text','about.text',data.about.text,true)+input('About closing','about.closing',data.about.closing,true);
- document.getElementById('projectsForm').innerHTML=data.projects.length?data.projects.map((p,i)=>'<div class="item"><div class="item-head"><strong><i class="bi bi-folder2-open me-2"></i>'+esc(p.title||'Untitled Project')+'</strong><div class="d-flex align-items-center gap-2"><div class="order-buttons"><button class="btn btn-outline-secondary btn-sm" title="Move up" onclick="moveProject('+i+',-1)" '+(i===0?'disabled':'')+'><i class="bi bi-chevron-up"></i></button><button class="btn btn-outline-secondary btn-sm" title="Move down" onclick="moveProject('+i+',1)" '+(i===data.projects.length-1?'disabled':'')+'><i class="bi bi-chevron-down"></i></button></div><button class="btn btn-outline-danger btn-sm" onclick="delProject('+i+')"><i class="bi bi-trash"></i></button></div></div>'+input('Title','projects.'+'+i+'+'.title',p.title)+input('Label','projects.'+'+i+'+'.label',p.label)+input('Description','projects.'+'+i+'+'.text',p.text,true)+'<div class="row g-2">'+['role','formats','status'].map(k=>'<div class="col-md-4">'+input(k[0].toUpperCase()+k.slice(1),'projects.'+'+i+'+'.'+k,p[k]||'')+'</div>').join('')+'</div><div class="row g-2 mt-1"><div class="col-md-8"><label class="form-label">Project media</label><select class="form-select" data-path="projects.'+'+i+'+'.mediaPath"><option value="">No media selected</option>'+data.media.filter(m=>m.projectId===p.id||m.path===p.mediaPath).map(m=>'<option value="'+esc(m.path)+'" '+(m.path===p.mediaPath?'selected':'')+'>'+esc(m.title||m.path)+'</option>').join('')+'</select></div><div class="col-md-4">'+input('Media type','projects.'+'+i+'+'.mediaType',p.mediaType||'')+'</div></div></div>').join(''):'<div class="empty">No projects yet.</div>';
- document.getElementById('experienceForm').innerHTML=data.experience.length?data.experience.map((p,i)=>pair('experience',i,p)).join(''):'<div class="empty">No experience entries yet.</div>';
- document.getElementById('expertiseForm').innerHTML=data.expertise.length?data.expertise.map((p,i)=>pair('expertise',i,p)).join(''):'<div class="empty">No expertise items yet.</div>';
- document.getElementById('mediaForm').innerHTML=data.media.length?data.media.map((m,i)=>mediaCard(m,i)).join(''):'<div class="empty"><i class="bi bi-images fs-2 d-block mb-2"></i>No media yet.</div>';
+
+function status(t,ok=false){ $('status').innerHTML='<span class="'+(ok?'text-success':'text-danger')+'">'+esc(t)+'</span>'; }
+function markDirty(){ dirty=true; $('saveStatus').innerHTML='<span class="dirty"><i class="bi bi-exclamation-circle me-1"></i>Unsaved changes</span>'; }
+
+function headers(){
+  const t=token();
+  if(!t) throw new Error('Enter your GitHub token first.');
+  return {Authorization:'Bearer '+t,Accept:'application/vnd.github+json','Content-Type':'application/json'};
 }
-function pair(k,i,p){return '<div class="item"><div class="item-head"><strong>'+esc(p[0]||'New item')+'</strong><button class="btn btn-outline-danger btn-sm" onclick="delPair(\''+k+'\','+i+')"><i class="bi bi-trash"></i></button></div>'+input('Title',k+'.'+i+'.0',p[0])+input('Description',k+'.'+i+'.1',p[1],true)+'</div>'}
+
+async function github(path,opt={}){
+  let r;
+  try{
+    r=await fetch('https://api.github.com'+path,{...opt,headers:{...headers(),...(opt.headers||{})}});
+  }catch(e){ throw new Error('Cannot reach GitHub API. Check your internet/VPN connection.'); }
+  let j={}; try{j=await r.json()}catch{}
+  if(!r.ok) throw new Error((j.message||('GitHub request failed: HTTP '+r.status))+' (HTTP '+r.status+')');
+  return j;
+}
+async function api(path,opt={}){return github('/repos/'+owner+'/'+repo+'/contents/'+path,opt)}
+
+async function verifyOwner(){
+  const u=await github('/user');
+  if(u.login!==owner) throw new Error('This token belongs to "'+u.login+'", not "Homayoun7351".');
+  const r=await github('/repos/'+owner+'/'+repo);
+  if(r.permissions && r.permissions.push===false) throw new Error('Token has no write permission. GitHub token: Contents → Read and write.');
+  return u;
+}
+
+function decodeContent(s){
+  return decodeURIComponent(escape(atob(String(s).replace(/\n/g,''))));
+}
+function encodeContent(s){return btoa(unescape(encodeURIComponent(s)));}
+
+async function loadData(){
+  const btn=$('connectBtn');
+  btn.disabled=true;
+  status('Connecting to GitHub…');
+  try{
+    await verifyOwner();
+    const j=await api('content.json');
+    data=JSON.parse(decodeContent(j.content));
+    sha=j.sha;
+    data.media=data.media||[];
+    data.projects=data.projects||[];
+    data.experience=data.experience||[];
+    data.expertise=data.expertise||[];
+    dirty=false;
+    $('connection').classList.add('hidden');
+    $('logoutBtn').classList.remove('hidden');
+    render(); updateMetrics(); showPanel('dashboard');
+    $('saveStatus').innerHTML='<span class="text-success"><i class="bi bi-check-circle me-1"></i>Connected to GitHub.</span>';
+  }catch(e){ status(e.message||String(e)); $('saveStatus').textContent='Connection failed.'; }
+  finally{btn.disabled=false;}
+}
+
+function logout(){
+  $('token').value=''; data=null; sha=null; dirty=false;
+  $('connection').classList.remove('hidden'); $('logoutBtn').classList.add('hidden');
+  $('saveStatus').textContent='Logged out.'; showPanel('dashboard');
+}
+
+function showPanel(id){
+  document.querySelectorAll('.panel').forEach(x=>x.classList.toggle('active',x.id===id));
+  document.querySelectorAll('.side-link[data-panel]').forEach(x=>x.classList.toggle('active',x.dataset.panel===id));
+  const names={
+    dashboard:['Dashboard','Portfolio overview and quick actions.'],
+    basic:['Site & About','Identity and introductory content.'],
+    projects:['Projects','Selected work and project pages.'],
+    experience:['Professional Experience','Career highlights and roles.'],
+    expertise:['Expertise','Professional areas and capabilities.'],
+    media:['Media Library','Images, video, audio and documents.']
+  };
+  $('pageTitle').textContent=names[id][0]; $('pageSub').textContent=names[id][1];
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function input(label,path,value,area=false){
+  return '<div class="mb-3"><label class="form-label">'+esc(label)+'</label>'+
+    (area?'<textarea class="form-control" rows="3" data-path="'+esc(path)+'">'+esc(value)+'</textarea>':
+    '<input class="form-control" value="'+esc(value)+'" data-path="'+esc(path)+'">')+'</div>';
+}
+
+function render(){
+  data.media=data.media||[];
+  $('basicForm').innerHTML=
+    '<div class="row"><div class="col-lg-6">'+
+    input('Name','site.name',data.site?.name||'')+
+    input('Role','site.role',data.site?.role||'')+
+    '</div><div class="col-lg-6">'+
+    input('Hero text','site.heroText',data.site?.heroText||'',true)+
+    '</div></div><hr class="my-4"><h5 class="mb-3">About Section</h5>'+
+    input('About intro','about.intro',data.about?.intro||'',true)+
+    input('About heading','about.heading',data.about?.heading||'')+
+    input('About text','about.text',data.about?.text||'',true)+
+    input('About closing','about.closing',data.about?.closing||'',true);
+
+  $('projectsForm').innerHTML=data.projects.length?data.projects.map((p,i)=>{
+    const opts=data.media.filter(m=>m.projectId===p.id||m.path===p.mediaPath).map(m=>
+      '<option value="'+esc(m.path)+'" '+(m.path===p.mediaPath?'selected':'')+'>'+esc(m.title||m.path)+'</option>').join('');
+    return '<div class="item"><div class="item-head"><strong><i class="bi bi-folder2-open me-2"></i>'+esc(p.title||'Untitled Project')+
+      '</strong><div class="d-flex align-items-center gap-2"><div class="order-buttons">'+
+      '<button class="btn btn-outline-secondary btn-sm" onclick="moveProject('+i+',-1)" '+(i===0?'disabled':'')+'><i class="bi bi-chevron-up"></i></button>'+
+      '<button class="btn btn-outline-secondary btn-sm" onclick="moveProject('+i+',1)" '+(i===data.projects.length-1?'disabled':'')+'><i class="bi bi-chevron-down"></i></button>'+
+      '</div><button class="btn btn-outline-danger btn-sm" onclick="delProject('+i+')"><i class="bi bi-trash"></i></button></div></div>'+
+      input('Title','projects.'+i+'.title',p.title||'')+
+      input('Label','projects.'+i+'.label',p.label||'')+
+      input('Description','projects.'+i+'.text',p.text||'',true)+
+      '<div class="row g-2">'+['role','formats','status'].map(k=>'<div class="col-md-4">'+input(k[0].toUpperCase()+k.slice(1),'projects.'+i+'.'+k,p[k]||'')+'</div>').join('')+
+      '</div><div class="row g-2 mt-1"><div class="col-md-8"><label class="form-label">Project media</label>'+
+      '<select class="form-select" data-path="projects.'+i+'.mediaPath"><option value="">No media selected</option>'+opts+'</select></div>'+
+      '<div class="col-md-4">'+input('Media type','projects.'+i+'.mediaType',p.mediaType||'')+'</div></div></div>';
+  }).join(''):'<div class="empty">No projects yet.</div>';
+
+  $('experienceForm').innerHTML=data.experience.length?data.experience.map((p,i)=>pair('experience',i,p)).join(''):'<div class="empty">No experience entries yet.</div>';
+  $('expertiseForm').innerHTML=data.expertise.length?data.expertise.map((p,i)=>pair('expertise',i,p)).join(''):'<div class="empty">No expertise items yet.</div>';
+  $('mediaForm').innerHTML=data.media.length?data.media.map((m,i)=>mediaCard(m,i)).join(''):'<div class="empty"><i class="bi bi-images fs-2 d-block mb-2"></i>No media yet.</div>';
+}
+
+function pair(k,i,p){
+  return '<div class="item"><div class="item-head"><strong>'+esc(p[0]||'New item')+
+    '</strong><button class="btn btn-outline-danger btn-sm" onclick="delPair(\''+k+'\','+i+')"><i class="bi bi-trash"></i></button></div>'+
+    input('Title',k+'.'+i+'.0',p[0]||'')+input('Description',k+'.'+i+'.1',p[1]||'',true)+'</div>';
+}
 function mediaIcon(t){return t==='image'?'bi-image':t==='video'?'bi-camera-video':t==='audio'?'bi-music-note-beamed':t==='pdf'?'bi-file-earmark-pdf':'bi-file-earmark'}
-function mediaCard(m,i){return '<div class="item"><div class="row align-items-center g-3"><div class="col-auto"><div class="media-thumb">'+(m.type==='image'?'<img src="'+esc(m.path)+'" onerror="this.style.display=\\'none\\'">':'<i class="bi '+mediaIcon(m.type)+'"></i>')+'</div></div><div class="col"><input class="form-control mb-2" value="'+esc(m.title)+'" data-media="'+i+'|title"><div class="row g-2"><div class="col-md-4"><select class="form-select" data-media="'+i+'|type"><option value="image" '+(m.type==='image'?'selected':'')+'>Image</option><option value="video" '+(m.type==='video'?'selected':'')+'>Video</option><option value="audio" '+(m.type==='audio'?'selected':'')+'>Audio</option><option value="pdf" '+(m.type==='pdf'?'selected':'')+'>PDF</option><option value="other" '+(m.type==='other'?'selected':'')+'>Other</option></select></div><div class="col-md-8"><select class="form-select" data-media="'+i+'|projectId"><option value="">No project</option>'+data.projects.map(p=>'<option value="'+esc(p.id)+'" '+(m.projectId===p.id?'selected':'')+'>'+esc(p.title||p.id)+'</option>').join('')+'</select></div></div><div class="small-note mt-2">'+esc(m.path)+'</div></div><div class="col-auto d-flex gap-2"><button class="btn btn-outline-primary" onclick="previewMedia('+i+')" title="Preview"><i class="bi bi-eye"></i></button><a class="btn btn-outline-secondary" target="_blank" rel="noopener noreferrer" href="'+esc(m.path)+'"><i class="bi bi-box-arrow-up-right"></i></a><button class="btn btn-outline-danger" onclick="deleteMedia('+i+')"><i class="bi bi-trash"></i></button></div></div></div>'}
-function collect(){document.querySelectorAll('[data-path]').forEach(el=>{const a=el.dataset.path.split('.');let o=data;for(let i=0;i<a.length-1;i++)o=o[a[i]];o[a[a.length-1]]=el.value});document.querySelectorAll('[data-media]').forEach(el=>{const [i,k]=el.dataset.media.split('|');data.media[+i][k]=el.value})}
-function updateMetrics(){if(!data)return;document.getElementById('mProjects').textContent=(data.projects||[]).length;document.getElementById('mExperience').textContent=(data.experience||[]).length;document.getElementById('mExpertise').textContent=(data.expertise||[]).length;document.getElementById('mMedia').textContent=(data.media||[]).length}
-function moveProject(i,d){collect();const j=i+d;if(j<0||j>=data.projects.length)return;[data.projects[i],data.projects[j]]=[data.projects[j],data.projects[i]];markDirty();render();updateMetrics();showPanel('projects')} function addProject(){collect();data.projects.push({id:'project-'+Date.now(),title:'New Project',label:'Selected Work',text:'Project description',role:'',formats:'',status:'Selected work',mediaPath:'',mediaType:''});markDirty();render();updateMetrics();showPanel('projects')}
+function mediaCard(m,i){
+  return '<div class="item"><div class="row align-items-center g-3"><div class="col-auto"><div class="media-thumb">'+
+    (m.type==='image'?'<img src="'+esc(m.path)+'" alt="">':'<i class="bi '+mediaIcon(m.type)+'"></i>')+
+    '</div></div><div class="col"><input class="form-control mb-2" value="'+esc(m.title||'')+'" data-media="'+i+'|title">'+
+    '<div class="row g-2"><div class="col-md-4"><select class="form-select" data-media="'+i+'|type">'+
+    ['image','video','audio','pdf','other'].map(t=>'<option value="'+t+'" '+(m.type===t?'selected':'')+'>'+t+'</option>').join('')+
+    '</select></div><div class="col-md-8"><select class="form-select" data-media="'+i+'|projectId"><option value="">No project</option>'+
+    data.projects.map(p=>'<option value="'+esc(p.id)+'" '+(m.projectId===p.id?'selected':'')+'>'+esc(p.title||p.id)+'</option>').join('')+
+    '</select></div></div><div class="small-note mt-2">'+esc(m.path)+'</div></div>'+
+    '<div class="col-auto d-flex gap-2"><button class="btn btn-outline-primary" onclick="previewMedia('+i+')"><i class="bi bi-eye"></i></button>'+
+    '<a class="btn btn-outline-secondary" target="_blank" rel="noopener noreferrer" href="'+esc(m.path)+'"><i class="bi bi-box-arrow-up-right"></i></a>'+
+    '<button class="btn btn-outline-danger" onclick="deleteMedia('+i+')"><i class="bi bi-trash"></i></button></div></div></div>';
+}
+
+function collect(){
+  document.querySelectorAll('[data-path]').forEach(el=>{
+    const a=el.dataset.path.split('.'); let o=data;
+    for(let i=0;i<a.length-1;i++){if(o[a[i]]==null)o[a[i]]=isNaN(a[i+1])?{}:[];o=o[a[i]];}
+    o[a[a.length-1]]=el.value;
+  });
+  document.querySelectorAll('[data-media]').forEach(el=>{
+    const [i,k]=el.dataset.media.split('|'); data.media[Number(i)][k]=el.value;
+  });
+}
+function updateMetrics(){
+  $('mProjects').textContent=(data.projects||[]).length;
+  $('mExperience').textContent=(data.experience||[]).length;
+  $('mExpertise').textContent=(data.expertise||[]).length;
+  $('mMedia').textContent=(data.media||[]).length;
+}
+function moveProject(i,d){collect();const j=i+d;if(j<0||j>=data.projects.length)return;[data.projects[i],data.projects[j]]=[data.projects[j],data.projects[i]];markDirty();render();updateMetrics();showPanel('projects')}
+function addProject(){collect();data.projects.push({id:'project-'+Date.now(),title:'New Project',label:'Selected Work',text:'Project description',role:'',formats:'',status:'Selected work',mediaPath:'',mediaType:''});markDirty();render();updateMetrics();showPanel('projects')}
 function delProject(i){if(confirm('Delete this project?')){collect();data.projects.splice(i,1);markDirty();render();updateMetrics()}}
 function addPair(k){collect();data[k].push(['New item','Description']);markDirty();render();updateMetrics();showPanel(k)}
 function delPair(k,i){if(confirm('Delete this item?')){collect();data[k].splice(i,1);markDirty();render();updateMetrics()}}
-function b64(s){return btoa(unescape(encodeURIComponent(s)))}
-async function save(){try{if(!data)throw Error('Connect to GitHub first.');collect();const j=await api('content.json',{method:'PUT',body:JSON.stringify({message:'Update portfolio content',content:b64(JSON.stringify(data,null,2)),sha,branch})});sha=j.content.sha;dirty=false;updateMetrics();document.getElementById('saveStatus').innerHTML='<span class="text-success"><i class="bi bi-check-circle me-1"></i>Published successfully to GitHub.</span>'}catch(e){document.getElementById('saveStatus').innerHTML='<span class="text-danger">'+esc(e.message)+'</span>'}}
-async function uploadMedia(){try{if(!data)throw Error('Connect to GitHub first.');const f=document.getElementById('file').files[0],path=document.getElementById('filePath').value.trim();if(!f||!path)throw Error('Choose a file and enter its repository path.');if(f.size>25*1024*1024)throw Error('Keep uploads under 25 MB.');let bin='';const b=new Uint8Array(await f.arrayBuffer());for(let i=0;i<b.length;i+=0x8000)bin+=String.fromCharCode(...b.subarray(i,i+0x8000));await api(path,{method:'PUT',body:JSON.stringify({message:'Add portfolio media: '+path,content:btoa(bin),branch})});data.media.push({id:'media-'+Date.now(),title:document.getElementById('mediaTitle').value.trim()||f.name,type:document.getElementById('mediaType').value,path,projectId:document.getElementById('mediaProject').value.trim()});document.getElementById('file').value='';document.getElementById('filePath').value='';document.getElementById('mediaTitle').value='';document.getElementById('mediaProject').value='';render();updateMetrics();markDirty();document.getElementById('saveStatus').innerHTML='<span class="text-success">Media uploaded. Save & Publish to save its metadata.</span>'}catch(e){document.getElementById('saveStatus').innerHTML='<span class="text-danger">'+esc(e.message)+'</span>'}}
-async function deleteMedia(i){try{collect();const m=data.media[i];if(!confirm('Delete this media file from GitHub? This cannot be undone.'))return;const j=await api(m.path);await api(m.path,{method:'DELETE',body:JSON.stringify({message:'Delete portfolio media: '+m.path,sha:j.sha,branch})});data.media.splice(i,1);render();updateMetrics();markDirty();document.getElementById('saveStatus').textContent='Media deleted.'}catch(e){document.getElementById('saveStatus').innerHTML='<span class="text-danger">'+esc(e.message)+'</span>'}}
-function previewMedia(i){const m=data.media[i];const body=document.getElementById('previewBody');document.getElementById('previewTitle').textContent=m.title||'Media Preview';if(m.type==='image')body.innerHTML='<img class="media-preview" src="'+esc(m.path)+'" alt="">';else if(m.type==='video')body.innerHTML='<video class="media-preview" controls src="'+esc(m.path)+'"></video>';else if(m.type==='audio')body.innerHTML='<audio class="w-100" controls src="'+esc(m.path)+'"></audio>';else if(m.type==='pdf')body.innerHTML='<iframe class="preview-frame" src="'+esc(m.path)+'"></iframe>';else body.innerHTML='<a class="btn btn-primary" target="_blank" rel="noopener noreferrer" href="'+esc(m.path)+'">Open file</a>';new bootstrap.Modal(document.getElementById('previewModal')).show()} document.addEventListener('input',e=>{if(e.target.matches('[data-path],[data-media]'))markDirty()});document.addEventListener('change',e=>{if(e.target.matches('[data-path],[data-media]'))markDirty()});window.addEventListener('beforeunload',e=>{if(dirty){e.preventDefault();e.returnValue='';}});
+
+async function save(){
+  try{
+    if(!data)throw new Error('Connect to GitHub first.');
+    collect();
+    const j=await api('content.json',{method:'PUT',body:JSON.stringify({message:'Update portfolio content',content:encodeContent(JSON.stringify(data,null,2)),sha,branch})});
+    sha=j.content.sha;dirty=false;updateMetrics();
+    $('saveStatus').innerHTML='<span class="text-success"><i class="bi bi-check-circle me-1"></i>Published successfully to GitHub.</span>';
+  }catch(e){$('saveStatus').innerHTML='<span class="text-danger">'+esc(e.message)+'</span>'}
+}
+
+async function uploadMedia(){
+  try{
+    if(!data)throw new Error('Connect to GitHub first.');
+    const f=$('file').files[0], path=$('filePath').value.trim();
+    if(!f||!path)throw new Error('Choose a file and enter its repository path.');
+    if(f.size>25*1024*1024)throw new Error('Keep uploads under 25 MB.');
+    const b=new Uint8Array(await f.arrayBuffer()); let bin='';
+    for(let i=0;i<b.length;i+=32768)bin+=String.fromCharCode(...b.subarray(i,i+32768));
+    await api(path,{method:'PUT',body:JSON.stringify({message:'Add portfolio media: '+path,content:btoa(bin),branch})});
+    data.media.push({id:'media-'+Date.now(),title:$('mediaTitle').value.trim()||f.name,type:$('mediaType').value,path,projectId:$('mediaProject').value.trim()});
+    $('file').value='';$('filePath').value='';$('mediaTitle').value='';$('mediaProject').value='';
+    render();updateMetrics();markDirty();$('saveStatus').textContent='Media uploaded. Save & Publish to save its metadata.';
+  }catch(e){$('saveStatus').innerHTML='<span class="text-danger">'+esc(e.message)+'</span>'}
+}
+
+async function deleteMedia(i){
+  try{
+    collect(); const m=data.media[i];
+    if(!confirm('Delete this media file from GitHub? This cannot be undone.'))return;
+    const j=await api(m.path);
+    await api(m.path,{method:'DELETE',body:JSON.stringify({message:'Delete portfolio media: '+m.path,sha:j.sha,branch})});
+    data.media.splice(i,1);render();updateMetrics();markDirty();$('saveStatus').textContent='Media deleted.';
+  }catch(e){$('saveStatus').innerHTML='<span class="text-danger">'+esc(e.message)+'</span>'}
+}
+function previewMedia(i){
+  const m=data.media[i], body=$('previewBody'); $('previewTitle').textContent=m.title||'Media Preview';
+  if(m.type==='image')body.innerHTML='<img class="media-preview" src="'+esc(m.path)+'" alt="">';
+  else if(m.type==='video')body.innerHTML='<video class="media-preview" controls src="'+esc(m.path)+'"></video>';
+  else if(m.type==='audio')body.innerHTML='<audio class="w-100" controls src="'+esc(m.path)+'"></audio>';
+  else if(m.type==='pdf')body.innerHTML='<iframe class="preview-frame" src="'+esc(m.path)+'"></iframe>';
+  else body.innerHTML='<a class="btn btn-primary" target="_blank" rel="noopener noreferrer" href="'+esc(m.path)+'">Open file</a>';
+  new bootstrap.Modal($('previewModal')).show();
+}
+
+document.querySelectorAll('.side-link[data-panel]').forEach(x=>x.addEventListener('click',()=>showPanel(x.dataset.panel)));
+document.addEventListener('input',e=>{if(e.target.matches('[data-path],[data-media]'))markDirty()});
+document.addEventListener('change',e=>{if(e.target.matches('[data-path],[data-media]'))markDirty()});
+window.addEventListener('beforeunload',e=>{if(dirty){e.preventDefault();e.returnValue=''}});
+window.addEventListener('error',e=>{if($('status'))status('JavaScript error: '+e.message)});
 </script>
 </body></html>
