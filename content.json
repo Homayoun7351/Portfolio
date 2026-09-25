@@ -338,7 +338,10 @@
       "role": "Senior Executive Manager",
       "formats": "2D & 3D Animation · Short & Series Production",
       "status": "Professional achievement",
-      "links": []
+      "links": [],
+      "mediaPath": "media/project-animation-units-1790362265018-animation.jpg",
+      "mediaType": "image",
+      "mediaId": ""
     }
   ],
   "experience": [
@@ -525,6 +528,13 @@
       "type": "image",
       "path": "media/project-javaneha-1790362243530-koodak.jpg",
       "projectId": "javaneha"
+    },
+    {
+      "id": "media-1790362269462",
+      "title": "Founder of Two Animation Units — Project Image",
+      "type": "image",
+      "path": "media/project-animation-units-1790362265018-animation.jpg",
+      "projectId": "animation-units"
     }
   ],
   "contact": [
