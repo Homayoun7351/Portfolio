@@ -84,8 +84,8 @@
           "https://www.dropbox.com/scl/fi/3yr3e3oods07xainy8mhj/Fifth-Council.mp4?rlkey=ri50ma5duf0jp6nstaziqvgwy&dl=0"
         ]
       ],
-      "mediaPath": "",
-      "mediaType": "",
+      "mediaPath": "media/project-fifth-council-1790364797527-anjoman.png",
+      "mediaType": "image",
       "mediaId": ""
     },
     {
@@ -487,6 +487,13 @@
       "type": "image",
       "path": "media/project-radiopod-1790364757285-radio.png",
       "projectId": "radiopod"
+    },
+    {
+      "id": "media-1790364804169",
+      "title": "The Fifth Council — Project Image",
+      "type": "image",
+      "path": "media/project-fifth-council-1790364797527-anjoman.png",
+      "projectId": "fifth-council"
     }
   ],
   "contact": [
