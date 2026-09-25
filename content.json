@@ -159,8 +159,8 @@
       "formats": "15-minute Industrial Documentary",
       "status": "No sample available",
       "links": [],
-      "mediaPath": "media/project-abadan-refinery-1790361940283-refinery.jpg",
-      "mediaType": "image",
+      "mediaPath": "",
+      "mediaType": "",
       "mediaId": ""
     },
     {
@@ -389,13 +389,6 @@
       "type": "image",
       "path": "media/Gemini_Generated_Image_c9kuxzc9kuxzc9ku.jpg",
       "projectId": ""
-    },
-    {
-      "id": "media-1790361944902",
-      "title": "ABADAN Refinery — Project Image",
-      "type": "image",
-      "path": "media/project-abadan-refinery-1790361940283-refinery.jpg",
-      "projectId": "abadan-refinery"
     },
     {
       "id": "media-1790362269462",
