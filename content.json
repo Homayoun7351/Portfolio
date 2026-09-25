@@ -179,8 +179,8 @@
           "https://www.dropbox.com/scl/fi/umuc345bkubpes45ygtb3/Da-Mother.MP4?rlkey=kwz1u40av1j6jxfc65cw&dl=0\nDA — JameJam Article | https://jamejamonline.ir/fa/news/255151/%D8%B3%D8%A7%D8%AE%D8%AA-%D9%85%D8%B3%D8%AA%D9%86%D8%AF-%D8%AA%D9%84%D9%88%DB%8C%D8%B2%DB%8C%D9%86%D9%88%D8%86%DB%8C-%D8%AF%D8%A7-%D8%AF%D8%B1-%D8%A2%D8%A8%D8%A7%D8%AF%D8%A7%D9%86\nDA — IRNA Article | https://www.irna.ir/amp/9669670/"
         ]
       ],
-      "mediaPath": "media/project-da-mother-1790361968139-da.jpg",
-      "mediaType": "image",
+      "mediaPath": "",
+      "mediaType": "",
       "mediaId": ""
     },
     {
@@ -410,13 +410,6 @@
       "type": "image",
       "path": "media/project-breaking-point-1790362058426-noghteye-rahaee.jpg",
       "projectId": "breaking-point"
-    },
-    {
-      "id": "media-1790361973179",
-      "title": "DA (Mother) — Project Image",
-      "type": "image",
-      "path": "media/project-da-mother-1790361968139-da.jpg",
-      "projectId": "da-mother"
     },
     {
       "id": "media-1790362246152",
