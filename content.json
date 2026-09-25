@@ -309,8 +309,8 @@
       "formats": "45-minute Weekly Show · 26 Episodes · 1,170 minutes",
       "status": "No sample available",
       "links": [],
-      "mediaPath": "",
-      "mediaType": "",
+      "mediaPath": "media/project-masir-1790362222091-masir.jpg",
+      "mediaType": "image",
       "mediaId": ""
     },
     {
@@ -508,6 +508,13 @@
       "type": "image",
       "path": "media/project-masir-1790362172926-masir.jpg",
       "projectId": ""
+    },
+    {
+      "id": "media-1790362227396",
+      "title": "Masir (Path) — Project Image",
+      "type": "image",
+      "path": "media/project-masir-1790362222091-masir.jpg",
+      "projectId": "masir"
     }
   ],
   "contact": [
