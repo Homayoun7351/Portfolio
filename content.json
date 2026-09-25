@@ -159,8 +159,8 @@
       "formats": "15-minute Industrial Documentary",
       "status": "No sample available",
       "links": [],
-      "mediaPath": "",
-      "mediaType": "",
+      "mediaPath": "media/project-abadan-refinery-1790365250224-palayesh.png",
+      "mediaType": "image",
       "mediaId": ""
     },
     {
@@ -508,6 +508,13 @@
       "type": "image",
       "path": "media/project-giti-to-ra-pasandid-1790365209786-giti.png",
       "projectId": "giti-to-ra-pasandid"
+    },
+    {
+      "id": "media-1790365256433",
+      "title": "ABADAN Refinery — Project Image",
+      "type": "image",
+      "path": "media/project-abadan-refinery-1790365250224-palayesh.png",
+      "projectId": "abadan-refinery"
     }
   ],
   "contact": [
