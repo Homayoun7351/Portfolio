@@ -179,7 +179,6 @@ function toDropboxRaw(url){
     const u=new URL(url);
     u.searchParams.delete('dl');
     u.searchParams.set('raw','1');
-    if(u.hostname==='www.dropbox.com'||u.hostname==='dropbox.com')u.hostname='dl.dropboxusercontent.com';
     return u.toString();
   }catch{return url}
 }
@@ -193,6 +192,8 @@ function openVideoModal(url,title){
   if(modalVideo)modalVideo.addEventListener('error',()=>{
     videoModalBody.innerHTML='<div style="height:100%;display:flex;align-items:center;justify-content:center;padding:30px;text-align:center;color:#fff"><div><i class="bi bi-cloud-arrow-up" style="font-size:4rem;color:#8fd8f5"></i><h3>Video hosted on Dropbox</h3><p class="mb-4">Dropbox is not returning the video stream to the browser player.</p><a class="btn btn-primary" href="'+escHtml(url)+'" target="_blank" rel="noopener noreferrer"><i class="bi bi-box-arrow-up-right me-2"></i>Open Video</a></div></div>';
   },{once:true});
+    setTimeout(()=>{if(!settled&&document.getElementById('modalProjectVideo')){videoModalBody.innerHTML='<div style="height:100%;display:flex;align-items:center;justify-content:center;padding:30px;text-align:center;color:#fff"><div><i class="bi bi-cloud-arrow-up" style="font-size:4rem;color:#8fd8f5"></i><h3>Dropbox video could not be loaded here</h3><p class="mb-4">Dropbox is not providing a browser-playable stream for this shared link.</p><a class="btn btn-primary" href="'+escHtml(url)+'" target="_blank" rel="noopener noreferrer"><i class="bi bi-box-arrow-up-right me-2"></i>Open Video on Dropbox</a></div></div>'}},7000);
+  }
   videoModal.classList.add('show');videoModal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';
 }
 function closeVideoModal(){
