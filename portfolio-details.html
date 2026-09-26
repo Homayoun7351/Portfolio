@@ -24,7 +24,7 @@ function showMedia(m,videoUrl=''){
     const yt=youtubeVideoId(videoUrl);
     el=yt
       ? '<iframe src="https://www.youtube.com/embed/'+encodeURIComponent(yt)+'?rel=0&playsinline=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="Project video"></iframe>'
-      : '<video controls playsinline preload="auto" src="'+toDropboxRaw(videoUrl)+'"></video>';
+      : '<video id="projectVideo" controls playsinline preload="metadata" poster="'+(m?.type==='image'&&m.path?m.path:'')+'" src="'+toDropboxRaw(videoUrl)+'"></video>';
   }else if(m?.type==='image')el='<img class="image-player" src="'+m.path+'" alt="">';
   else if(m?.type==='video')el='<video controls playsinline src="'+m.path+'"></video>';
   else if(m?.type==='audio')el='<audio controls src="'+m.path+'"></audio>';
@@ -33,7 +33,7 @@ function showMedia(m,videoUrl=''){
   box.innerHTML=el;
   if(videoUrl&&!youtubeVideoId(videoUrl)){
     const v=document.getElementById("projectVideo");
-    if(v){v.addEventListener("loadeddata",()=>{try{v.currentTime=Math.min(0.15,v.duration||0);v.pause()}catch(e){}},{once:true});}
+    if(v){v.addEventListener("loadedmetadata",()=>{try{v.pause()}catch(e){}},{once:true});}
   }
 }
 load();
