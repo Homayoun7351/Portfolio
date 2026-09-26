@@ -51,6 +51,17 @@
 .portfolio .portfolio-content:hover img{transform:scale(1.07)}
 .portfolio .portfolio-content:hover .portfolio-placeholder{transform:scale(1.03)}
 .portfolio .portfolio-item{transition:transform .3s ease}
+.portfolio .portfolio-play-badge{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:62px;height:62px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(20,157,221,.94);color:#fff;font-size:30px;box-shadow:0 10px 28px rgba(0,0,0,.28);z-index:2;pointer-events:none;transition:transform .3s ease,opacity .3s ease}
+.portfolio .portfolio-content:hover .portfolio-play-badge{transform:translate(-50%,-50%) scale(1.08)}
+.portfolio .portfolio-media-link{border:0;cursor:pointer}
+.portfolio .portfolio-media-link i{font-size:25px}
+.video-modal{position:fixed;inset:0;background:rgba(0,0,0,.86);z-index:10050;display:none;align-items:center;justify-content:center;padding:30px}
+.video-modal.show{display:flex}
+.video-modal-inner{position:relative;width:min(1100px,94vw);aspect-ratio:16/9;background:#05080c;border-radius:12px;overflow:hidden;box-shadow:0 20px 70px rgba(0,0,0,.5)}
+.video-modal-inner iframe,.video-modal-inner video{width:100%;height:100%;border:0;display:block;background:#000}
+.video-modal-close{position:absolute;right:12px;top:12px;width:42px;height:42px;border:1px solid rgba(255,255,255,.4);border-radius:50%;background:rgba(0,0,0,.55);color:#fff;font-size:24px;z-index:2;cursor:pointer}
+.video-modal-title{position:absolute;left:18px;bottom:14px;color:#fff;font-size:13px;background:rgba(0,0,0,.55);padding:6px 10px;border-radius:4px;z-index:2;max-width:70%}
+@media(max-width:575px){.video-modal{padding:12px}.video-modal-inner{width:100%;border-radius:8px}.video-modal-close{width:38px;height:38px}.portfolio .portfolio-play-badge{width:52px;height:52px;font-size:26px}}
 @media(max-width:991px){.portfolio-slider-wrap{gap:10px}.portfolio-arrow{width:42px;height:42px;min-width:42px;font-size:20px}}
 @media(max-width:575px){.portfolio-arrow{width:38px;height:38px;min-width:38px;font-size:18px}.portfolio-grid{margin-left:-8px;margin-right:-8px}.portfolio .portfolio-content{aspect-ratio:16/9}.portfolio .portfolio-content img,.portfolio .portfolio-placeholder{height:100%}.portfolio .portfolio-content .portfolio-info{padding:12px}.portfolio .portfolio-content .portfolio-info h4{font-size:12px;padding:6px 8px}.portfolio .portfolio-content .portfolio-info p{left:12px;right:12px;bottom:50px;font-size:11px;line-height:1.45;-webkit-line-clamp:2}.portfolio .portfolio-content .portfolio-info .portfolio-meta{left:12px;right:12px;bottom:12px}.portfolio .portfolio-content .portfolio-info .portfolio-meta span{font-size:9px;padding:4px 6px}.portfolio .portfolio-content .portfolio-info .preview-link,.portfolio .portfolio-content .portfolio-info .details-link{width:38px;height:38px;font-size:18px}.portfolio .portfolio-content .portfolio-info .preview-link{left:calc(50% - 43px)}.portfolio .portfolio-content .portfolio-info .details-link{left:calc(50% + 5px);font-size:20px}}
 .navmenu a{position:relative;display:flex!important;align-items:center;padding:12px 15px!important;margin:0!important;color:#a8a9b4!important;background:transparent!important;border-radius:0!important;transition:color .2s ease}.navmenu a .navicon{font-size:20px;margin-right:12px;color:#a8a9b4;transition:color .2s ease}.navmenu a:hover{color:#fff!important;transform:none!important;background:transparent!important}.navmenu a:hover .navicon{color:#fff;transform:none}.navmenu a.active{color:#149ddd!important;background:transparent!important}.navmenu a.active::before{display:none}.navmenu a.active .navicon{color:#149ddd!important}#header .logo{padding:15px 15px 10px}#header .logo h1{font-size:24px;letter-spacing:.2px;color:#fff}#header .logo:after{display:none}#navmenu ul{padding:0;margin:0}
@@ -85,7 +96,13 @@
 <section id="skills" class="skills section" data-aos="fade-up"><div class="container section-title"><h2>Expertise</h2><p>The professional areas at the center of this portfolio.</p></div><div class="container"><div id="expertise" class="row gy-4"></div></div></section>
 <section id="contact" class="contact section light-background" data-aos="fade-up"><div class="container section-title"><h2>Contact</h2></div><div class="container"><div class="row gy-3"><div class="col-lg-10 mx-auto"><div class="info-wrap" id="contactItems"></div><div class="contact-form"><h3>Send a Message</h3><p>Have a project, collaboration or professional inquiry? Send me a message.</p><form id="contactForm" action="https://formsubmit.co/ajax/sheikhi.h@gmail.com" method="POST"><input type="hidden" name="_subject" value="New message from Homayoun Sheikhi Portfolio"><input type="hidden" name="_template" value="table"><input type="hidden" name="_url" value="https://homayoun7351.github.io/Portfolio/"><div class="row gy-3"><div class="col-md-6"><input type="text" name="name" class="form-control" placeholder="Your Name" required></div><div class="col-md-6"><input type="email" name="email" class="form-control" placeholder="Your Email" required></div><div class="col-12"><input type="text" name="subject" class="form-control" placeholder="Subject" required></div><div class="col-12"><textarea name="message" class="form-control" placeholder="Message" required></textarea></div><div class="col-12"><button type="submit" class="btn-send"><i class="bi bi-send me-2"></i>Send Message</button><div id="contactStatus" class="form-status"></div></div></div></form></div></div></div></div></section>
 </main>
-<footer id="footer" class="footer"><div class="container text-center">© 2026 Homayoun Sheikhi</div></footer>
+<footer id="footer" class="footer"><div class="container text-center">© 2026 Homayoun Sheikhi</div></footer><div id="videoModal" class="video-modal" aria-hidden="true">
+  <div class="video-modal-inner">
+    <button type="button" class="video-modal-close" id="videoModalClose" aria-label="Close video"><i class="bi bi-x-lg"></i></button>
+    <div id="videoModalBody"></div>
+    <div id="videoModalTitle" class="video-modal-title"></div>
+  </div>
+</div>
 <script>
 const navLinks=[...document.querySelectorAll('#navmenu a[href^="#"]')];const sections=navLinks.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
 function setActiveNav(){const marker=window.scrollY+window.innerHeight*.45;let current=sections[0],best=-Infinity;sections.forEach(sec=>{const top=sec.getBoundingClientRect().top+window.scrollY;if(top<=marker&&top>best){best=top;current=sec}});if(window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-10)current=sections[sections.length-1];navLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+current.id))}
@@ -97,6 +114,28 @@ siteName.textContent=d.site.name;heroName.innerHTML=escHtml(d.site.name).replace
 aboutIntro.textContent=d.about.intro;aboutHeading.textContent=d.about.heading;aboutText.textContent=d.about.text;aboutFields.textContent=d.about.fields;aboutLeadership.textContent=d.about.leadership;aboutContent.textContent=d.about.content;aboutRoles.textContent=d.about.roles;aboutAudio.textContent=d.about.audio;aboutProject.textContent=d.about.project;aboutClosing.textContent=d.about.closing;
 bring.innerHTML=d.bring.map(x=>'<div class="col-lg-4"><div class="cardx"><div class="icon"><i class="bi '+escHtml(x.icon)+'"></i></div><h3>'+escHtml(x.title)+'</h3><p>'+escHtml(x.text)+'</p></div></div>').join('');
 const mediaForProject=id=>(d.media||[]).find(m=>m.projectId===id&&m.type==='image'&&m.path);
+const videoUrlForProject=p=>{
+  if(p.videoUrl&&/^https?:\/\//i.test(String(p.videoUrl))) return String(p.videoUrl).trim();
+  for(const pair of (p.links||[])){
+    const raw=String(pair?.[1]||'');
+    const urls=raw.match(/https?:\/\/[^\s|]+/gi)||[];
+    const hit=urls.find(u=>/youtube\.com|youtu\.be/i.test(u)||(/dropbox\.com/i.test(u)&&/\.(mp4|webm|mov|m4v)(?:[?#]|$)/i.test(u)));
+    if(hit)return hit;
+  }
+  return '';
+};
+const youtubeVideoId=url=>{
+  const s=String(url||'');
+  const m=s.match(/(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/|live\/)|youtu\.be\/)([A-Za-z0-9_-]{6,})/i);
+  return m?m[1]:'';
+};
+const isYouTubeUrl=url=>!!youtubeVideoId(url);
+const isDropboxVideoUrl=url=>/dropbox\.com/i.test(String(url||''))&&/\.(mp4|webm|mov|m4v)(?:[?#]|$)/i.test(String(url||''));
+const videoLabel=url=>isYouTubeUrl(url)?'YouTube Video':'Video';
+const portfolioVideoThumb=x=>{
+  const m=mediaForProject(x.id);
+  return m?'<img src="'+escHtml(m.path)+'" class="img-fluid" loading="lazy" alt="'+escHtml(x.title)+'">':'<div class="portfolio-placeholder"><i class="bi bi-camera-video"></i></div>';
+};
 const allProjects=d.projects||[];
 const portfolioPageSize=6;
 let portfolioPage=0;
@@ -105,7 +144,16 @@ function renderPortfolioPage(page,animate=true){
   portfolioPage=Math.max(0,Math.min(page,totalPages-1));
   const render=()=>{
     const pageProjects=allProjects.slice(portfolioPage*portfolioPageSize,(portfolioPage+1)*portfolioPageSize);
-    projects.innerHTML=pageProjects.map((x,idx)=>{const m=mediaForProject(x.id);const image=m?'<img src="'+escHtml(m.path)+'" class="img-fluid" loading="lazy" alt="'+escHtml(x.title)+'">':'<div class="portfolio-placeholder"><i class="bi bi-image"></i></div>';const meta=[x.year,x.label,x.role].filter(Boolean).slice(0,3).map(v=>'<span>'+escHtml(v)+'</span>').join('');return '<div class="col-lg-4 col-md-6 portfolio-item"><div class="portfolio-content h-100">'+image+'<div class="portfolio-info"><h4>'+escHtml(x.title)+'</h4><p>'+escHtml(x.text)+'</p><div class="portfolio-meta">'+meta+'</div>'+(m?'<a href="'+escHtml(m.path)+'" title="'+escHtml(x.title)+'" data-gallery="portfolio-gallery" class="glightbox preview-link" aria-label="Preview '+escHtml(x.title)+'"><i class="bi bi-zoom-in"></i></a>':'')+'<a href="portfolio-details.html?project='+encodeURIComponent(x.id)+'" title="More Details" class="details-link" aria-label="Open '+escHtml(x.title)+'"><i class="bi bi-arrow-up-right"></i></a></div></div></div>'}).join('');
+    projects.innerHTML=pageProjects.map((x,idx)=>{
+  const m=mediaForProject(x.id), v=videoUrlForProject(x);
+  const image=portfolioVideoThumb(x);
+  const meta=[x.year,x.label,x.role].filter(Boolean).slice(0,3).map(v=>'<span>'+escHtml(v)+'</span>').join('');
+  const preview=v
+    ? '<button type="button" class="portfolio-media-link preview-link" data-video-url="'+escHtml(v)+'" data-video-title="'+escHtml(x.title)+'" aria-label="Play '+escHtml(x.title)+'"><i class="bi bi-play-fill"></i></button>'
+    : (m?'<a href="'+escHtml(m.path)+'" title="'+escHtml(x.title)+'" data-gallery="portfolio-gallery" class="glightbox preview-link" aria-label="Preview '+escHtml(x.title)+'"><i class="bi bi-zoom-in"></i></a>':'');
+  const playBadge=v?'<div class="portfolio-play-badge"><i class="bi bi-play-fill"></i></div>':'';
+  return '<div class="col-lg-4 col-md-6 portfolio-item"><div class="portfolio-content h-100">'+image+playBadge+'<div class="portfolio-info"><h4>'+escHtml(x.title)+'</h4><p>'+escHtml(x.text)+'</p><div class="portfolio-meta">'+meta+'</div>'+preview+'<a href="portfolio-details.html?project='+encodeURIComponent(x.id)+'" title="More Details" class="details-link" aria-label="Open '+escHtml(x.title)+'"><i class="bi bi-arrow-up-right"></i></a></div></div></div>'
+}).join('');
     portfolioPager.innerHTML='<span class="pager-count">'+(portfolioPage+1)+' / '+totalPages+'</span><span class="pager-dots">'+Array.from({length:totalPages},(_,i)=>'<button type="button" class="pager-dot'+(i===portfolioPage?' active':'')+'" aria-label="Go to portfolio page '+(i+1)+'" data-page="'+i+'"></button>').join('')+'</span>';
     portfolioPager.querySelectorAll('.pager-dot').forEach(dot=>dot.addEventListener('click',()=>renderPortfolioPage(Number(dot.dataset.page))));
     portfolioPrev.disabled=portfolioPage===0;
@@ -125,6 +173,28 @@ contactItems.innerHTML=(d.contact||[]).map(x=>'<div class="info-item d-flex"><i 
 setActiveNav();
 }).catch(e=>console.error(e));
 document.querySelector('.header-toggle')?.addEventListener('click',()=>document.querySelector('#header').classList.toggle('header-show'));
+const videoModal=document.getElementById('videoModal'),videoModalBody=document.getElementById('videoModalBody'),videoModalTitle=document.getElementById('videoModalTitle'),videoModalClose=document.getElementById('videoModalClose');
+function toDropboxRaw(url){
+  try{const u=new URL(url);u.searchParams.delete('dl');u.searchParams.set('raw','1');return u.toString()}catch{return url}
+}
+function openVideoModal(url,title){
+  if(!videoModal||!url)return;
+  videoModalBody.innerHTML=isYouTubeUrl(url)
+    ? '<iframe src="https://www.youtube.com/embed/'+encodeURIComponent(youtubeVideoId(url))+'?rel=0&playsinline=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="'+escHtml(title||'Video')+'"></iframe>'
+    : '<video controls playsinline preload="metadata" src="'+escHtml(toDropboxRaw(url))+'"></video>';
+  videoModalTitle.textContent=title||'';
+  videoModal.classList.add('show');videoModal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';
+}
+function closeVideoModal(){
+  if(!videoModal)return;
+  videoModal.classList.remove('show');videoModal.setAttribute('aria-hidden','true');videoModalBody.innerHTML='';document.body.style.overflow='';
+}
+document.addEventListener('click',e=>{
+  const b=e.target.closest('.portfolio-media-link[data-video-url]');
+  if(b){e.preventDefault();openVideoModal(b.dataset.videoUrl,b.dataset.videoTitle);return}
+  if(e.target===videoModal||e.target.closest('#videoModalClose'))closeVideoModal();
+});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeVideoModal()});
 if(window.PureCounter){new PureCounter();}
 const contactForm=document.getElementById('contactForm');const contactStatus=document.getElementById('contactStatus');if(contactForm){contactForm.addEventListener('submit',async e=>{e.preventDefault();const btn=contactForm.querySelector('button[type="submit"]');btn.disabled=true;btn.innerHTML='<i class="bi bi-arrow-repeat me-2"></i>Sending...';contactStatus.className='form-status';contactStatus.textContent='';try{const response=await fetch(contactForm.action,{method:'POST',headers:{'Accept':'application/json'},body:new FormData(contactForm)});const result=await response.json();if(response.ok&&result.success!==false){contactStatus.className='form-status success';contactStatus.textContent='Your message has been sent successfully.';contactForm.reset()}else{throw new Error('send failed')}}catch(err){contactStatus.className='form-status error';contactStatus.textContent='The message could not be sent. Please try again.'}finally{btn.disabled=false;btn.innerHTML='<i class="bi bi-send me-2"></i>Send Message'}})};
 </script>
