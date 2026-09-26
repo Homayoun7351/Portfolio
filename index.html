@@ -175,7 +175,13 @@ setActiveNav();
 document.querySelector('.header-toggle')?.addEventListener('click',()=>document.querySelector('#header').classList.toggle('header-show'));
 const videoModal=document.getElementById('videoModal'),videoModalBody=document.getElementById('videoModalBody'),videoModalTitle=document.getElementById('videoModalTitle'),videoModalClose=document.getElementById('videoModalClose');
 function toDropboxRaw(url){
-  try{const u=new URL(url);u.searchParams.delete('dl');u.searchParams.set('raw','1');return u.toString()}catch{return url}
+  try{
+    const u=new URL(url);
+    u.searchParams.delete('dl');
+    u.searchParams.set('raw','1');
+    if(u.hostname==='www.dropbox.com'||u.hostname==='dropbox.com')u.hostname='dl.dropboxusercontent.com';
+    return u.toString();
+  }catch{return url}
 }
 function openVideoModal(url,title){
   if(!videoModal||!url)return;
@@ -183,6 +189,10 @@ function openVideoModal(url,title){
     ? '<iframe src="https://www.youtube.com/embed/'+encodeURIComponent(youtubeVideoId(url))+'?rel=0&playsinline=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="'+escHtml(title||'Video')+'"></iframe>'
     : '<video controls playsinline preload="metadata" src="'+escHtml(toDropboxRaw(url))+'"></video>';
   videoModalTitle.textContent=title||'';
+  const modalVideo=document.getElementById('modalProjectVideo');
+  if(modalVideo)modalVideo.addEventListener('error',()=>{
+    videoModalBody.innerHTML='<div style="height:100%;display:flex;align-items:center;justify-content:center;padding:30px;text-align:center;color:#fff"><div><i class="bi bi-cloud-arrow-up" style="font-size:4rem;color:#8fd8f5"></i><h3>Video hosted on Dropbox</h3><p class="mb-4">Dropbox is not returning the video stream to the browser player.</p><a class="btn btn-primary" href="'+escHtml(url)+'" target="_blank" rel="noopener noreferrer"><i class="bi bi-box-arrow-up-right me-2"></i>Open Video</a></div></div>';
+  },{once:true});
   videoModal.classList.add('show');videoModal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';
 }
 function closeVideoModal(){
