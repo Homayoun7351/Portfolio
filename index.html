@@ -115,12 +115,9 @@ aboutIntro.textContent=d.about.intro;aboutHeading.textContent=d.about.heading;ab
 bring.innerHTML=d.bring.map(x=>'<div class="col-lg-4"><div class="cardx"><div class="icon"><i class="bi '+escHtml(x.icon)+'"></i></div><h3>'+escHtml(x.title)+'</h3><p>'+escHtml(x.text)+'</p></div></div>').join('');
 const mediaForProject=id=>(d.media||[]).find(m=>m.projectId===id&&m.type==='image'&&m.path);
 const videoUrlForProject=p=>{
-  if(p.videoUrl&&/^https?:\/\//i.test(String(p.videoUrl))){const u=String(p.videoUrl).trim();if(youtubeVideoId(u)||isDropboxVideoUrl(u))return u;}
-  for(const pair of (p.links||[])){
-    const raw=String(pair?.[1]||'');
-    const urls=raw.match(/https?:\/\/[^\s|]+/gi)||[];
-    const hit=urls.find(u=>youtubeVideoId(u)||isDropboxVideoUrl(u));
-    if(hit)return hit;
+  if(p.videoUrl&&/^https?:\/\//i.test(String(p.videoUrl))){
+    const u=String(p.videoUrl).trim();
+    if(youtubeVideoId(u)||isDropboxVideoUrl(u))return u;
   }
   return '';
 };
