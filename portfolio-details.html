@@ -17,7 +17,21 @@ function videoUrlForProject(p){
   return '';
 }
 function youtubeVideoId(url){const m=String(url||'').match(/(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/|live\/)|youtu\.be\/)([A-Za-z0-9_-]{6,})/i);return m?m[1]:''}
-function toDropboxRaw(url){try{const u=new URL(url);u.searchParams.delete('dl');u.searchParams.set('raw','1');return u.toString()}catch{return url}}
+function toDropboxRaw(url){
+  try{
+    const u=new URL(url);
+    u.searchParams.delete('dl');
+    u.searchParams.set('raw','1');
+    if(u.hostname==='www.dropbox.com'||u.hostname==='dropbox.com')u.hostname='dl.dropboxusercontent.com';
+    return u.toString();
+  }catch{return url}
+}
+function showDropboxFallback(){
+  const box=document.getElementById('player'),v=document.getElementById('projectVideo');
+  if(!box||!v)return;
+  const src=v.getAttribute('data-original-url')||v.src;
+  box.innerHTML='<div class="placeholder"><div><i class="bi bi-cloud-arrow-up" style="font-size:4rem"></i><h3>Video hosted on Dropbox</h3><p class="mb-4">Dropbox is not returning the video stream in a browser player.</p><a class="btn btn-primary" href="'+src+'" target="_blank" rel="noopener noreferrer"><i class="bi bi-box-arrow-up-right me-2"></i>Open Video</a></div></div>';
+}
 function showMedia(m,videoUrl=''){
   const box=document.getElementById('player');let el='';
   if(videoUrl){
@@ -33,7 +47,10 @@ function showMedia(m,videoUrl=''){
   box.innerHTML=el;
   if(videoUrl&&!youtubeVideoId(videoUrl)){
     const v=document.getElementById("projectVideo");
-    if(v){v.addEventListener("loadedmetadata",()=>{try{v.pause()}catch(e){}},{once:true});}
+    if(v){
+      v.addEventListener("loadedmetadata",()=>{try{v.pause()}catch(e){}},{once:true});
+      v.addEventListener("error",showDropboxFallback,{once:true});
+    }
   }
 }
 load();
