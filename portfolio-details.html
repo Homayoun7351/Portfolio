@@ -22,7 +22,6 @@ function toDropboxRaw(url){
     const u=new URL(url);
     u.searchParams.delete('dl');
     u.searchParams.set('raw','1');
-    if(u.hostname==='www.dropbox.com'||u.hostname==='dropbox.com')u.hostname='dl.dropboxusercontent.com';
     return u.toString();
   }catch{return url}
 }
@@ -48,8 +47,12 @@ function showMedia(m,videoUrl=''){
   if(videoUrl&&!youtubeVideoId(videoUrl)){
     const v=document.getElementById("projectVideo");
     if(v){
-      v.addEventListener("loadedmetadata",()=>{try{v.pause()}catch(e){}},{once:true});
+      let settled=false;
+      const done=()=>{settled=true};
+      v.addEventListener("loadedmetadata",()=>{done();try{v.pause()}catch(e){}},{once:true});
+      v.addEventListener("canplay",done,{once:true});
       v.addEventListener("error",showDropboxFallback,{once:true});
+      setTimeout(()=>{if(!settled)showDropboxFallback()},7000);
     }
   }
 }
