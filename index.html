@@ -227,12 +227,11 @@ document.addEventListener('click',e=>{
   if(e.target===videoModal||e.target.closest('#videoModalClose'))closeVideoModal();
 });
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeVideoModal()});
-if(window.PureCounter){new PureCounter();}
 const contactForm=document.getElementById('contactForm');const contactStatus=document.getElementById('contactStatus');if(contactForm){contactForm.addEventListener('submit',async e=>{e.preventDefault();const btn=contactForm.querySelector('button[type="submit"]');btn.disabled=true;btn.innerHTML='<i class="bi bi-arrow-repeat me-2"></i>Sending...';contactStatus.className='form-status';contactStatus.textContent='';try{const response=await fetch(contactForm.action,{method:'POST',headers:{'Accept':'application/json'},body:new FormData(contactForm)});const result=await response.json();if(response.ok&&result.success!==false){contactStatus.className='form-status success';contactStatus.textContent='Your message has been sent successfully.';contactForm.reset()}else{throw new Error('send failed')}}catch(err){contactStatus.className='form-status error';contactStatus.textContent='The message could not be sent. Please try again.'}finally{btn.disabled=false;btn.innerHTML='<i class="bi bi-send me-2"></i>Send Message'}})};
 </script>
 <script src="https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/js/glightbox.min.js"></script>
 <script src="assets/vendor/aos/aos.js"></script>
 <script>
-if(window.AOS){AOS.init({duration:600,easing:'ease-in-out',once:true});}
+
 </script>
 </body></html>
