@@ -542,6 +542,13 @@
       "projectId": "masir"
     },
     {
+      "id": "media-1791306017170",
+      "title": "Story of Friday (Gessey_e_Zohre_e-Jomeh) — Project Image",
+      "type": "image",
+      "path": "media/project-project-1791305081445-1791306013937-photo_2026-10-04_15-43-11.jpg",
+      "projectId": "project-1791305081445"
+    },
+    {
       "id": "media-1790364762503",
       "title": "RadioPod Podcast — Project Image",
       "type": "image",
@@ -575,13 +582,6 @@
       "type": "image",
       "path": "media/project-zyafat-e-noor-1790365505243-zyafat.png",
       "projectId": "zyafat-e-noor"
-    },
-    {
-      "id": "media-1791306017170",
-      "title": "Story of Friday (Gessey_e_Zohre_e-Jomeh) — Project Image",
-      "type": "image",
-      "path": "media/project-project-1791305081445-1791306013937-photo_2026-10-04_15-43-11.jpg",
-      "projectId": "project-1791305081445"
     }
   ],
   "contact": [
@@ -605,9 +605,9 @@
     }
   ],
   "access": {
-    "enabled": false,
-    "salt": "",
-    "hash": "",
+    "enabled": true,
+    "salt": "MHM7FMCptfa0whep6LTWaw==",
+    "hash": "PqMkBTvyYeBQCQTaJxg/clNElHEhNdjCr6jtfzkKGGA=",
     "iterations": 150000
   }
 }
