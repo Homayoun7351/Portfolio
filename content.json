@@ -603,5 +603,11 @@
       "icon": "bi-telephone",
       "link": "tel:+989205001285"
     }
-  ]
+  ],
+  "access": {
+    "enabled": false,
+    "salt": "",
+    "hash": "",
+    "iterations": 150000
+  }
 }
