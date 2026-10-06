@@ -70,7 +70,7 @@
 </div>
 </section>
 
-<section id="basic" class="panel"><div class="cardx panel-card"><div class="section-head"><div><h2>Site & About</h2><p>Control the main identity and About section shown on the website.</p></div></div><div id="basicForm"></div></div></section>
+<section id="basic" class="panel"><div class="cardx panel-card"><div class="section-head"><div><h2>Site & About</h2><p>Control the main identity and About section shown on the website.</p></div></div><div id="basicForm"></div><div id="portfolioAccessPanel" class="item mt-4"><div class="section-head mb-3"><div><h5 class="mb-1"><i class="bi bi-shield-lock me-2"></i>Portfolio Access</h5><p class="small-note mb-0">Require a password before visitors can view the portfolio.</p></div><span id="portfolioAccessState" class="connected-pill">Protection off</span></div><div class="form-check form-switch mb-3"><input class="form-check-input" type="checkbox" id="portfolioAccessEnabled"><label class="form-check-label" for="portfolioAccessEnabled">Enable password protection</label></div><div class="row g-2 align-items-end"><div class="col-md-5"><label class="form-label">New password</label><input id="portfolioNewPassword" type="password" class="form-control" autocomplete="new-password" placeholder="Choose your password"></div><div class="col-md-5"><label class="form-label">Confirm password</label><input id="portfolioNewPassword2" type="password" class="form-control" autocomplete="new-password" placeholder="Repeat password"></div><div class="col-md-2"><button type="button" class="btn btn-primary w-100" onclick="changePortfolioPassword()">Set / Change</button></div></div><div class="small-note mt-2">The password itself is never stored in the repository. Use a strong password and change it here whenever you want.</div></div></div></section>
 <section id="projects" class="panel"><div class="cardx panel-card"><div class="section-head"><div><h2>Projects</h2><p>Edit each project completely — text, year, location, links and its main image — from one place.</p></div><button class="btn btn-primary btn-sm" onclick="addProject()"><i class="bi bi-plus-lg"></i> Add Project</button></div><div id="projectsForm"></div></div></section>
 <section id="experience" class="panel"><div class="cardx panel-card"><div class="section-head"><div><h2>Professional Experience</h2><p>Manage achievements and career roles.</p></div><button class="btn btn-primary btn-sm" onclick="addPair('experience')"><i class="bi bi-plus-lg"></i> Add</button></div><div id="experienceForm"></div></div></section>
 <section id="expertise" class="panel"><div class="cardx panel-card"><div class="section-head"><div><h2>Expertise</h2><p>Manage the professional areas displayed on the site.</p></div><button class="btn btn-primary btn-sm" onclick="addPair('expertise')"><i class="bi bi-plus-lg"></i> Add</button></div><div id="expertiseForm"></div></div></section>
@@ -267,6 +267,42 @@ async function uploadHeroImage(){
     sha=j.content.sha;dirty=false;render();updateMetrics();
     $('saveStatus').innerHTML='<span class="text-success"><i class="bi bi-check-circle me-1"></i>Hero image changed and published.</span>';
   }catch(e){$('saveStatus').innerHTML='<span class="text-danger">'+esc(e.message)+'</span>'}
+}
+function renderPortfolioAccess(){
+  data.access=data.access||{enabled:false,salt:'',hash:'',iterations:150000};
+  $('portfolioAccessEnabled').checked=!!data.access.enabled;
+  $('portfolioAccessState').textContent=data.access.enabled?'Protection on':'Protection off';
+  $('portfolioAccessState').style.background=data.access.enabled?'#ecfdf5':'#f1f5f9';
+  $('portfolioAccessState').style.color=data.access.enabled?'#047857':'#64748b';
+}
+function randomSalt(){const b=new Uint8Array(16);crypto.getRandomValues(b);return btoa(String.fromCharCode(...b));}
+async function makePasswordHash(password,salt,iterations){
+  const raw=Uint8Array.from(atob(salt),c=>c.charCodeAt(0));
+  const key=await crypto.subtle.importKey('raw',new TextEncoder().encode(password),'PBKDF2',false,['deriveBits']);
+  const bits=await crypto.subtle.deriveBits({name:'PBKDF2',salt:raw,iterations:iterations||150000,hash:'SHA-256'},key,256);
+  return btoa(String.fromCharCode(...new Uint8Array(bits)));
+}
+async function changePortfolioPassword(){
+  try{
+    if(!data)throw new Error('Connect to GitHub first.');
+    const p=$('portfolioNewPassword').value, p2=$('portfolioNewPassword2').value;
+    if(p.length<8)throw new Error('Use a password with at least 8 characters.');
+    if(p!==p2)throw new Error('Passwords do not match.');
+    const salt=randomSalt(), iterations=150000;
+    data.access={enabled:true,salt,hash:await makePasswordHash(p,salt,iterations),iterations};
+    $('portfolioNewPassword').value='';$('portfolioNewPassword2').value='';
+    await save();renderPortfolioAccess();
+  }catch(e){$('saveStatus').innerHTML='<span class="text-danger">'+esc(e.message)+'</span>'}
+}
+function togglePortfolioProtection(){
+  if(!data)return;
+  data.access=data.access||{enabled:false,salt:'',hash:'',iterations:150000};
+  if($('portfolioAccessEnabled').checked && !data.access.hash){
+    $('portfolioAccessEnabled').checked=false;
+    $('saveStatus').innerHTML='<span class="text-danger">Set a password first.</span>';
+    return;
+  }
+  data.access.enabled=$('portfolioAccessEnabled').checked;markDirty();renderPortfolioAccess();
 }
 function render(){
   data.media=data.media||[];
