@@ -124,10 +124,11 @@ async function requirePortfolioAccess(access){
   if(!access?.enabled||!access?.salt||!access?.hash){finish();return true;}
   if(sessionStorage.getItem('portfolioAccessGranted')==='1'){finish();return true;}
   gate.classList.add('show');gate.setAttribute('aria-hidden','false');
-  const attempt=async()=>{error.textContent='';const password=input.value;if(!password){error.textContent='Please enter the password.';return;}button.disabled=true;button.textContent='Checking…';try{const hash=await portfolioPasswordHash(password,access.salt,access.iterations);if(hash===access.hash){sessionStorage.setItem('portfolioAccessGranted','1');finish();}else{error.textContent='Incorrect password.';input.select();}}catch(e){error.textContent='Unable to verify the password.';}finally{button.disabled=false;button.textContent='Access Portfolio';}};
-  button.onclick=attempt;input.addEventListener('keydown',e=>{if(e.key==='Enter')attempt();});
-  document.documentElement.classList.remove('portfolio-auth-pending');
-  return false;
+  return new Promise(resolve=>{
+    const attempt=async()=>{error.textContent='';const password=input.value;if(!password){error.textContent='Please enter the password.';return;}button.disabled=true;button.textContent='Checking…';try{const hash=await portfolioPasswordHash(password,access.salt,access.iterations);if(hash===access.hash){sessionStorage.setItem('portfolioAccessGranted','1');finish();resolve(true);}else{error.textContent='Incorrect password.';input.select();}}catch(e){error.textContent='Unable to verify the password.';}finally{button.disabled=false;button.textContent='Access Portfolio';}};
+    button.onclick=attempt;input.addEventListener('keydown',e=>{if(e.key==='Enter')attempt();});
+    document.documentElement.classList.remove('portfolio-auth-pending');
+  });
 }
 
 fetch('content.json').then(r=>r.json()).then(async d=>{if(!(await requirePortfolioAccess(d.access)))return;
