@@ -192,7 +192,11 @@ roles.innerHTML=d.roles.map(x=>'<div class="note mb-4"><h4>'+escHtml(x[0])+'</h4
 expertise.innerHTML=d.expertise.map(x=>'<div class="col-lg-6"><div class="note"><h4>'+escHtml(x[0])+'</h4><p>'+escHtml(x[1])+'</p></div></div>').join('');
 contactItems.innerHTML=(d.contact||[]).map(x=>'<div class="info-item d-flex"><i class="bi '+escHtml(x.icon||'bi-envelope')+' flex-shrink-0"></i><div><h3>'+escHtml(x.title||'')+'</h3><p>'+(x.link?'<a href="'+escHtml(x.link)+'" target="_blank" rel="noopener noreferrer">'+escHtml(x.value||x.link)+'</a>':escHtml(x.value||''))+'</p></div></div>').join('');
 setActiveNav();
-requestAnimationFrame(()=>{if(window.AOS){AOS.refreshHard();}if(window.PureCounter){new PureCounter();}});
+requestAnimationFrame(()=>{
+  if(window.AOS){AOS.init({duration:600,easing:'ease-in-out',once:true});AOS.refreshHard();}
+  if(window.PureCounter){new PureCounter();}
+  setActiveNav();
+});
 }).catch(e=>console.error(e));
 document.querySelector('.header-toggle')?.addEventListener('click',()=>document.querySelector('#header').classList.toggle('header-show'));
 const videoModal=document.getElementById('videoModal'),videoModalBody=document.getElementById('videoModalBody'),videoModalTitle=document.getElementById('videoModalTitle'),videoModalClose=document.getElementById('videoModalClose');
